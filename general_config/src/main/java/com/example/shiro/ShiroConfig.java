@@ -1,6 +1,6 @@
 package com.example.shiro;
 
-import com.example.PermissionService;
+import com.example.service.PermissionService;
 import com.example.filter.JwtFilter;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.DefaultSessionStorageEvaluator;

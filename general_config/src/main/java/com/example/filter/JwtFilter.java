@@ -1,10 +1,9 @@
 package com.example.filter;
 
 import com.example.shiro.JwtToken;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter;
-
+import org.apache.log4j.Logger;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
@@ -18,15 +17,15 @@ import java.io.IOException;
  * Date: 2020-04-23
  * Time: 14:09
  */
-@Slf4j
 public class JwtFilter extends BasicHttpAuthenticationFilter {
+    private static Logger logger = Logger.getLogger(JwtFilter.class);
     /*
      * 1. 返回true，shiro就直接允许访问url
      * 2. 返回false，shiro才会根据onAccessDenied的方法的返回值决定是否允许访问url
      * */
     @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws UnauthorizedException {
-        log.warn("isAccessAllowed 方法被调用 判断请求头是否带有token ");
+        logger.warn("isAccessAllowed 方法被调用 判断请求头是否带有token ");
         if(((HttpServletRequest) request).getHeader("Token") != null){
             //如何存在 则进入executeLogin 方法执行登入，检查token 是否有效
             try {
@@ -48,7 +47,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
      */
     @Override
     protected boolean executeLogin(ServletRequest servletRequest, ServletResponse servletResponse) throws Exception {
-        log.warn("executeLogin 方法被调用  检验token 是否有效");
+        logger.warn("executeLogin 方法被调用  检验token 是否有效");
 
         HttpServletRequest httpServletRequest = (HttpServletRequest)servletRequest;
         String token = httpServletRequest.getHeader("Token");

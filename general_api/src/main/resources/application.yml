@@ -56,7 +56,7 @@ spring:
 mybatis:
   mapper-locations: classpath:mappers/*.xml
   # 虽然可以配置这项来进行pojo包扫描，但其实我更倾向于在mapper.xml写全类名
-  type-aliases-package: com.example.model
+  type-aliases-package: com.example.entity
 
 server:
   port: 9999

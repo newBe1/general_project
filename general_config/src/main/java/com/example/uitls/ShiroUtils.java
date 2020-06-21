@@ -1,7 +1,7 @@
 package com.example.uitls;
 
 import cn.hutool.core.util.StrUtil;
-import com.example.User;
+import com.example.entity.User;
 import com.example.shiro.JwtRealm;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;

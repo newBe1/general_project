@@ -1,8 +1,12 @@
 package com.example.shiro;
 
-import com.example.*;
+import com.example.entity.Permission;
+import com.example.entity.Role;
+import com.example.entity.User;
+import com.example.service.RoleService;
+import com.example.service.UserService;
 import com.example.uitls.JwtUtil;
-import lombok.extern.slf4j.Slf4j;
+import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -26,9 +30,9 @@ import java.util.Set;
  * Date: 2020-04-23
  * Time: 10:54
  */
-@Slf4j
 @Component
 public class JwtRealm extends AuthorizingRealm {
+    private static Logger logger = Logger.getLogger(AuthorizingRealm.class);
     @Resource
     private UserService userService;
 
@@ -55,7 +59,7 @@ public class JwtRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        log.info("------执行授权--------");
+        logger.info("------执行授权--------");
         String username = JwtUtil.getUsername(principals.toString());
         User user = userService.findByName(username);
 
@@ -93,7 +97,7 @@ public class JwtRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        log.info("------执行认证--------");
+        logger.info("------执行认证--------");
 
         String jwt = (String) token.getCredentials();
         if (jwt == null) {
@@ -122,7 +126,7 @@ public class JwtRealm extends AuthorizingRealm {
             user.setPerms(permissions);
         }
 
-        log.info("在使用token登录"+username);
+        logger.info("在使用token登录"+username);
 
         //这里返回的是类似账号密码的东西，但是jwtToken都是jwt字符串。还需要一个该Realm的类名
         return new SimpleAuthenticationInfo(jwt,jwt,"JwtRealm");
