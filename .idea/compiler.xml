@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="general_mapper" />
+        <module name="general_entity" />
         <module name="commons" />
+        <module name="general_mapper" />
         <module name="general_service" />
         <module name="general_api" />
-        <module name="general_entity" />
         <module name="general_config" />
         <module name="mybatis-generatorConfig" />
       </profile>

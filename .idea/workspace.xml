@@ -2,82 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27c6c18d-1492-423d-8e47-0433ae2b8412" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commons/src/main/java/com/example/utils/MyMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sql/sys.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/commons/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/target/classes/META-INF/commons.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/commons/target/commons-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/commons/target/commons-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commons/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/commons/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commons/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/commons/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/commons/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_api/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_api/target/general_api-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/target/general_api-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_api/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_api/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_config/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_config/src/main/java/com/example/aspect/SysLogAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/src/main/java/com/example/aspect/SysLogAspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_config/src/main/java/com/example/filter/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/src/main/java/com/example/filter/JwtFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/JwtRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/JwtRealm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/ShiroConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_config/src/main/java/com/example/uitls/ShiroUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/src/main/java/com/example/uitls/ShiroUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_config/target/general_config-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/target/general_config-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_config/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_config/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/src/main/java/com/example/OperateLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/src/main/java/com/example/entity/OperateLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/src/main/java/com/example/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/src/main/java/com/example/entity/Permission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/src/main/java/com/example/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/src/main/java/com/example/entity/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/src/main/java/com/example/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/src/main/java/com/example/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/target/classes/com/example/OperateLog.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/target/classes/com/example/Permission.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/target/classes/com/example/Role.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/target/classes/com/example/User.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/general_entity/target/general_entity-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/target/general_entity-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_entity/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_entity/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_mapper/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/general_mapper/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_mapper/src/main/java/com/example/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_mapper/src/main/java/com/example/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_mapper/target/classes/com/example/UserMapper.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/general_mapper/target/general_mapper-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/general_mapper/target/general_mapper-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_mapper/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/general_mapper/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_mapper/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/OperateLogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/OperateLogService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/PermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/PermissionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/RoleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/impl/OperateLogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/impl/OperateLogServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/impl/PermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/impl/PermissionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/impl/RoleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/OperateLogService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/PermissionService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/RoleService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/impl/OperateLogServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/impl/PermissionServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/impl/RoleServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/impl/UserServiceImpl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/general_service/target/general_service-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/target/general_service-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-generatorConfig/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-generatorConfig/src/main/resources/generatorConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-generatorConfig/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-generatorConfig/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-generatorConfig/src/main/java/com/example/mybatis/utils/GeneratorDisplay.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mybatis-generatorConfig/target/classes/com/example/mybatis/utils/GeneratorDisplay.class" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-generatorConfig/target/classes/com/example/mybatis/utils/GeneratorDisplay.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-generatorConfig/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-generatorConfig/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-generatorConfig/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mybatis-generatorConfig/target/mybatis-generatorConfig-0.0.1-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system.log" beforeDir="false" afterPath="$PROJECT_DIR$/system.log" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/general_mapper/target/" />
@@ -114,7 +55,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/general_config/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
+            <state relative-caret-position="638">
               <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
             </state>
           </provider>
@@ -414,12 +355,20 @@
       <updated>1592388049929</updated>
       <workItem from="1592388055029" duration="7795000" />
       <workItem from="1592462962625" duration="8245000" />
-      <workItem from="1592713205620" duration="15740000" />
+      <workItem from="1592713205620" duration="15817000" />
     </task>
+    <task id="LOCAL-00001" summary="修改 mybatis自动生成工程">
+      <created>1592744062933</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1592744062933</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15740000" />
+    <option name="totallyTimeSpent" value="15817000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -442,7 +391,7 @@
       <window_info anchor="bottom" id="Version Control" weight="0.32938644" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32938644" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37029064" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.37029064" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -487,6 +436,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="修改 mybatis自动生成工程" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改 mybatis自动生成工程" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/general_mapper/src/main/java/com/example/mapper/UserMapper.java">
@@ -851,7 +804,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/general_config/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
+        <state relative-caret-position="638">
           <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
         </state>
       </provider>
