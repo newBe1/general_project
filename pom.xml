@@ -8,10 +8,10 @@
     <modules>
         <module>general_api</module>
         <module>general_service</module>
-        <module>general_mapper</module>
         <module>general_entity</module>
         <module>general_config</module>
         <module>commons</module>
+        <module>general_dao</module>
     </modules>
     <modelVersion>4.0.0</modelVersion>
     <name>general_project</name>

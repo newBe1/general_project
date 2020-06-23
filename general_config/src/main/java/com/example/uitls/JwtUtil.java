@@ -48,15 +48,15 @@ public class JwtUtil {
      * 校验 token 是否正确
      *
      * @param token    密钥
-     * @param username 用户名
+     * @param userId 用户id
      * @return 是否正确
      */
-    public static boolean verify(String token, String username) {
+    public static boolean verify(String token, Long userId) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(SECRET);
             //在token中附带了username信息
             JWTVerifier verifier = JWT.require(algorithm)
-                    .withClaim("username", username)
+                    .withClaim("userId", userId)
                     .build();
             //验证 token
             verifier.verify(token);
@@ -71,10 +71,10 @@ public class JwtUtil {
      *
      * @return token中包含的用户名
      */
-    public static String getUsername(String token) {
+    public static Long getUserId(String token) {
         try {
             DecodedJWT jwt = JWT.decode(token);
-            return jwt.getClaim("username").asString();
+            return jwt.getClaim("userId").asLong();
         } catch (JWTDecodeException e) {
             return null;
         }

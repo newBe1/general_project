@@ -1,56 +1,39 @@
 package com.example.entity;
 
-import javax.persistence.*;
+import java.io.Serializable;
 
-@Table(name = "sys_role_menu")
-public class SysRoleMenu {
+/**
+ * 角色和菜单关联表(SysRoleMenu)实体类
+ *
+ * @author makejava
+ * @since 2020-06-23 13:35:35
+ */
+public class SysRoleMenu implements Serializable {
+    private static final long serialVersionUID = -16552964563379827L;
     /**
-     * 角色ID
-     */
-    @Id
-    @Column(name = "role_id")
+    * 角色ID
+    */
     private Long roleId;
-
     /**
-     * 菜单ID
-     */
-    @Id
-    @Column(name = "menu_id")
+    * 菜单ID
+    */
     private Long menuId;
 
-    /**
-     * 获取角色ID
-     *
-     * @return role_id - 角色ID
-     */
+
     public Long getRoleId() {
         return roleId;
     }
 
-    /**
-     * 设置角色ID
-     *
-     * @param roleId 角色ID
-     */
     public void setRoleId(Long roleId) {
         this.roleId = roleId;
     }
 
-    /**
-     * 获取菜单ID
-     *
-     * @return menu_id - 菜单ID
-     */
     public Long getMenuId() {
         return menuId;
     }
 
-    /**
-     * 设置菜单ID
-     *
-     * @param menuId 菜单ID
-     */
     public void setMenuId(Long menuId) {
         this.menuId = menuId;
     }
+
 }

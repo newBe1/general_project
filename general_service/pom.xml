@@ -15,7 +15,7 @@
     <dependencies>
 
         <dependency>
-            <artifactId>general_mapper</artifactId>
+            <artifactId>general_dao</artifactId>
             <groupId>com.example</groupId>
             <version>1.0-SNAPSHOT</version>
         </dependency>

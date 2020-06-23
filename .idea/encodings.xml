@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/commons" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/general_api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/general_config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/general_dao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/general_entity" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/general_mapper" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/general_service" charset="UTF-8" />

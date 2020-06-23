@@ -61,10 +61,10 @@ mybatis:
 server:
   port: 9999
 #日志
-#logging:
-#  level:
-#    com:
-#      example: debug
-#  file:
-#    path: logs
-#    name: system.log
+logging:
+  level:
+    com:
+      example: debug
+  file:
+    path: logs
+    name: system.log

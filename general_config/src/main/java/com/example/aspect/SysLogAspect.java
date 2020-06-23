@@ -3,7 +3,6 @@ package com.example.aspect;
 import com.alibaba.fastjson.JSON;
 import com.example.service.OperateLogService;
 import com.example.entity.OperateLog;
-import com.example.entity.User;
 import com.example.annotations.SysLog;
 import com.example.uitls.ShiroUtils;
 import com.example.utils.ServletUtils;
