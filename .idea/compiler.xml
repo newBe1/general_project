@@ -22,13 +22,13 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="commons" options="-parameters" />
-      <module name="general_api" options="-parameters" />
-      <module name="general_config" options="-parameters" />
-      <module name="general_dao" options="-parameters" />
-      <module name="general_entity" options="-parameters" />
+      <module name="commons" options="" />
+      <module name="general_api" options="" />
+      <module name="general_config" options="" />
+      <module name="general_dao" options="" />
+      <module name="general_entity" options="" />
       <module name="general_mapper" options="-parameters" />
-      <module name="general_service" options="-parameters" />
+      <module name="general_service" options="" />
     </option>
   </component>
 </project>

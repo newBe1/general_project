@@ -1,6 +1,8 @@
 package com.example.shiro;
 
+import com.example.entity.SysMenu;
 import com.example.filter.JwtFilter;
+import com.example.service.SysMenuService;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.DefaultSessionStorageEvaluator;
 import org.apache.shiro.mgt.DefaultSubjectDAO;
@@ -17,6 +19,7 @@ import javax.annotation.Resource;
 import javax.servlet.Filter;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,7 +32,7 @@ import java.util.Map;
 @Configuration
 public class ShiroConfig {
     @Resource
-    private PermissionService permissionService;
+    private SysMenuService sysMenuService;
 
     @Bean("hashedCredentialsMatcher")
     public HashedCredentialsMatcher hashedCredentialsMatcher() {
@@ -76,13 +79,12 @@ public class ShiroConfig {
         filterRuleMap.put("/logout", "logout");
         filterRuleMap.put("/login","anon");
 
-        //对需要权限才能访问的资源地址配置拦截，只要不再这儿配置都任务不需要任何权限，直接放行
         //只要在Permission表的资源都要做权限拦截  以permission.getUrl() 作为拦截路径
-        /*List<Permission> allPermissions = permissionService.getAll();
-        for (Permission permission : allPermissions) {
+        List<SysMenu> sysMenuList = sysMenuService.queryAll(null);
+        for (SysMenu sysMenu : sysMenuList) {
             //reslt.put("/authorized.html", "perms[user:add]");//由于是代码，可以注入Service从数据库中查询
-            filterRuleMap.put(permission.getUrl(), "crmPerms["+permission.getPerm()+"]");
-        }*/
+            filterRuleMap.put(sysMenu.getUrl(), "crmPerms[" + sysMenu.getPerms() + "]");
+        }
 
         factoryBean.setFilterChainDefinitionMap(filterRuleMap);
         return factoryBean;

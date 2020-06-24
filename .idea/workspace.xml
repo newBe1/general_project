@@ -2,40 +2,85 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27c6c18d-1492-423d-8e47-0433ae2b8412" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/free-mybatis-generator-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/general_api/src/main/java/com/example/system/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/EasyCodeConfig/ry-sys_user.json" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EasyCodeConfig/ry-sys_user.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/commons/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/src/main/java/com/example/utils/MyMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/target/classes/com/example/enums/CodeMsg.class" beforeDir="false" afterPath="$PROJECT_DIR$/commons/target/classes/com/example/enums/CodeMsg.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/target/classes/com/example/enums/OperateType.class" beforeDir="false" afterPath="$PROJECT_DIR$/commons/target/classes/com/example/enums/OperateType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/target/classes/com/example/utils/MyMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/target/classes/com/example/utils/MyResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/commons/target/classes/com/example/utils/MyResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/target/classes/com/example/utils/ServletUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/commons/target/classes/com/example/utils/ServletUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/target/commons-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/commons/target/commons-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/commons/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/commons/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_api/src/main/java/com/example/MainSpringBootApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/src/main/java/com/example/MainSpringBootApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_api/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_api/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_api/target/classes/com/example/MainSpringBootApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/target/classes/com/example/MainSpringBootApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_api/target/general_api-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/target/general_api-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_config/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_config/src/main/java/com/example/aspect/SysLogAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/src/main/java/com/example/aspect/SysLogAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_config/src/main/java/com/example/filter/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/src/main/java/com/example/filter/JwtFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/JwtRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/JwtRealm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/ShiroConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_config/src/main/java/com/example/uitls/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/src/main/java/com/example/uitls/JwtUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_config/src/main/java/com/example/uitls/ShiroUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/src/main/java/com/example/uitls/ShiroUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/src/main/java/com/example/entity/Permission.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/src/main/java/com/example/entity/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/src/main/java/com/example/entity/SysMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/src/main/java/com/example/entity/SysRole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/src/main/java/com/example/entity/SysRoleMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/src/main/java/com/example/entity/SysUser.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/src/main/java/com/example/entity/SysUserRole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_entity/src/main/java/com/example/entity/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_mapper/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/general_dao/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_mapper/src/main/java/com/example/mapper/UserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_mapper/target/general_mapper-1.0-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_mapper/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_mapper/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/PermissionService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/RoleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/impl/PermissionServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/impl/RoleServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/impl/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_config/target/general_config-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/target/general_config-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_config/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_dao/src/main/java/com/example/dao/SysMenuDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_dao/src/main/java/com/example/dao/SysMenuDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_dao/src/main/java/com/example/dao/SysRoleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_dao/src/main/java/com/example/dao/SysRoleDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_dao/src/main/java/com/example/dao/SysRoleMenuDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_dao/src/main/java/com/example/dao/SysRoleMenuDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_dao/src/main/java/com/example/dao/SysUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_dao/src/main/java/com/example/dao/SysUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_dao/src/main/java/com/example/dao/SysUserRoleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_dao/src/main/java/com/example/dao/SysUserRoleDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_dao/src/main/resources/mapper/SysMenuDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/general_dao/src/main/resources/mapper/SysMenuDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_dao/src/main/resources/mapper/SysUserDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/general_dao/src/main/resources/mapper/SysUserDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_dao/target/classes/com/example/dao/SysMenuDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_dao/target/classes/com/example/dao/SysMenuDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_dao/target/classes/com/example/dao/SysRoleDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_dao/target/classes/com/example/dao/SysRoleDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_dao/target/classes/com/example/dao/SysRoleMenuDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_dao/target/classes/com/example/dao/SysRoleMenuDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_dao/target/classes/com/example/dao/SysUserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_dao/target/classes/com/example/dao/SysUserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_dao/target/classes/com/example/dao/SysUserRoleDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_dao/target/classes/com/example/dao/SysUserRoleDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_dao/target/classes/mapper/SysMenuDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/general_dao/target/classes/mapper/SysMenuDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_entity/src/main/java/com/example/entity/SysUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/src/main/java/com/example/entity/SysUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_entity/target/classes/META-INF/general_entity.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_entity/target/classes/com/example/entity/OperateLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/target/classes/com/example/entity/OperateLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_entity/target/classes/com/example/entity/SysMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/target/classes/com/example/entity/SysMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_entity/target/classes/com/example/entity/SysRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/target/classes/com/example/entity/SysRole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_entity/target/classes/com/example/entity/SysRoleMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/target/classes/com/example/entity/SysRoleMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_entity/target/classes/com/example/entity/SysUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/target/classes/com/example/entity/SysUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_entity/target/classes/com/example/entity/SysUserRole.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/target/classes/com/example/entity/SysUserRole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_entity/target/general_entity-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/target/general_entity-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_entity/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_entity/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/SysMenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/SysMenuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/impl/SysMenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/impl/SysMenuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/impl/SysRoleMenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/impl/SysRoleMenuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/impl/SysRoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/impl/SysRoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/impl/SysUserRoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/impl/SysUserRoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/impl/SysUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/src/main/java/com/example/service/impl/SysUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/target/classes/META-INF/general_service.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/service/OperateLogService.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/target/classes/com/example/service/OperateLogService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/service/SysMenuService.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/target/classes/com/example/service/SysMenuService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/service/SysRoleMenuService.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/target/classes/com/example/service/SysRoleMenuService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/service/SysRoleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/target/classes/com/example/service/SysRoleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/service/SysUserRoleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/target/classes/com/example/service/SysUserRoleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/service/SysUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/target/classes/com/example/service/SysUserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/service/impl/OperateLogServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/target/classes/com/example/service/impl/OperateLogServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/service/impl/SysMenuServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/target/classes/com/example/service/impl/SysMenuServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/service/impl/SysRoleMenuServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/target/classes/com/example/service/impl/SysRoleMenuServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/service/impl/SysRoleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/target/classes/com/example/service/impl/SysRoleServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/service/impl/SysUserRoleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/target/classes/com/example/service/impl/SysUserRoleServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/target/classes/com/example/service/impl/SysUserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/target/classes/com/example/service/impl/SysUserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/target/general_service-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/target/general_service-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/general_service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/system.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/system.log.0" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,13 +125,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/ShiroConfig.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/commons/pom.xml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/general_api/src/main/java/com/example/MainSpringBootApplication.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -106,8 +157,10 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -115,7 +168,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.7205882" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="com.sjhy.plugin.ui.TemplateSettingPanel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -244,6 +297,11 @@
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@29435944" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@1c9b205c" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@29435944" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceNode@16094937" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
@@ -268,7 +326,9 @@
       <workItem from="1592872886250" duration="698000" />
       <workItem from="1592874917147" duration="3334000" />
       <workItem from="1592878825008" duration="66000" />
-      <workItem from="1592878940669" duration="10716000" />
+      <workItem from="1592878940669" duration="16887000" />
+      <workItem from="1592904916951" duration="9611000" />
+      <workItem from="1592977704901" duration="6598000" />
     </task>
     <task id="LOCAL-00001" summary="修改 mybatis自动生成工程">
       <created>1592744062933</created>

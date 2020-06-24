@@ -95,7 +95,7 @@ public class JwtRealm extends AuthorizingRealm {
 
         String jwt = (String) token.getCredentials();
         if (jwt == null) {
-            throw new NullPointerException("token 不允许为空");
+            throw new AuthenticationException("token过期，请重新登录");
         }
 
         //下面是验证这个user是否是真实存在的

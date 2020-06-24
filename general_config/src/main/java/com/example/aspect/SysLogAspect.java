@@ -1,6 +1,7 @@
 package com.example.aspect;
 
 import com.alibaba.fastjson.JSON;
+import com.example.entity.SysUser;
 import com.example.service.OperateLogService;
 import com.example.entity.OperateLog;
 import com.example.annotations.SysLog;
@@ -91,9 +92,9 @@ public class SysLogAspect {
         operateLog.setCreateDate(new Date());
 
         //获取操作用户
-        User user = ShiroUtils.getSysUser();
+        SysUser user = ShiroUtils.getSysUser();
         if(user != null){
-            operateLog.setUsername(user.getName());
+            operateLog.setUsername(user.getUserName());
         }
 
         //获取操作用户的ip地址

@@ -151,4 +151,5 @@
         delete from ry.sys_menu where menu_id = #{menuId}
     </delete>
 
+
 </mapper>

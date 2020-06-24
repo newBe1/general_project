@@ -1,6 +1,7 @@
 package com.example.dao;
 
 import com.example.entity.SysRoleMenu;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-06-23 13:35:43
  */
+@Mapper
 public interface SysRoleMenuDao {
 
     /**

@@ -17,7 +17,7 @@ import java.util.Set;
  * @author makejava
  * @since 2020-06-23 13:36:41
  */
-@Service("sysRoleService")
+@Service
 public class SysRoleServiceImpl implements SysRoleService {
     @Resource
     private SysRoleDao sysRoleDao;

@@ -17,7 +17,7 @@ import java.util.Set;
  * @author makejava
  * @since 2020-06-23 13:35:00
  */
-@Service("sysUserService")
+@Service
 public class SysUserServiceImpl implements SysUserService {
     @Resource
     private SysUserDao sysUserDao;

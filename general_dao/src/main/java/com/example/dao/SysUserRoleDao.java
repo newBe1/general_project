@@ -1,6 +1,7 @@
 package com.example.dao;
 
 import com.example.entity.SysUserRole;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-06-23 13:33:02
  */
+@Mapper
 public interface SysUserRoleDao {
 
     /**

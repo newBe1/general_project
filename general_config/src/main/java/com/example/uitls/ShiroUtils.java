@@ -1,6 +1,7 @@
 package com.example.uitls;
 
 import cn.hutool.core.util.StrUtil;
+import com.example.entity.SysUser;
 import com.example.shiro.JwtRealm;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
@@ -38,19 +39,19 @@ public class ShiroUtils {
      * 获取当前用户
      * @return
      */
-    public static User getSysUser()
+    public static SysUser getSysUser()
     {
-        User user = null;
+        SysUser user = null;
         Object obj = getSubject().getPrincipal();
         if (!StrUtil.isBlankIfStr(obj))
         {
-            user = new User();
+            user = new SysUser();
             BeanUtils.copyProperties(user, obj);
         }
         return user;
     }
 
-    public static void setSysUser(User user)
+    public static void setSysUser(SysUser user)
     {
         Subject subject = getSubject();
         PrincipalCollection principalCollection = subject.getPrincipals();
@@ -67,14 +68,14 @@ public class ShiroUtils {
         realm.clearCachedAuthorizationInfo();
     }
 
-    public static String getUserId()
+    public static Long getUserId()
     {
-        return getSysUser().getId();
+        return getSysUser().getUserId();
     }
 
     public static String getLoginName()
     {
-        return getSysUser().getName();
+        return getSysUser().getUserName();
     }
 
     public static String getIp()

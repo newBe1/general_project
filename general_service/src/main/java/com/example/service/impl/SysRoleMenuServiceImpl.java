@@ -14,7 +14,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-06-23 13:35:59
  */
-@Service("sysRoleMenuService")
+@Service
 public class SysRoleMenuServiceImpl implements SysRoleMenuService {
     @Resource
     private SysRoleMenuDao sysRoleMenuDao;

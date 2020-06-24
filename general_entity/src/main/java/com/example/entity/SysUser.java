@@ -29,10 +29,6 @@ public class SysUser implements Serializable {
     */
     private Long deptId;
     /**
-    * 登录账号
-    */
-    private String loginName;
-    /**
     * 用户昵称
     */
     private String userName;
@@ -101,7 +97,7 @@ public class SysUser implements Serializable {
     */
     private String remark;
 
-    private Set<SysRole> roles = new HashSet<>();          //用户所有角色值，用于shiro做角色权限的判断
-    private Set<SysMenu> menus = new HashSet<>();    //用户所有权限值，用于shiro做资源权限的判断
-
+    private Set<SysRole> roles;          //用户所有角色值，用于shiro做角色权限的判断
+    private Set<SysMenu> menus;    //用户所有权限值，用于shiro做资源权限的判断
+    private String jwt;            //用户登陆成功后的token
 }

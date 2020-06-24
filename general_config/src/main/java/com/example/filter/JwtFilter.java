@@ -54,7 +54,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
         JwtToken jwtToken = new JwtToken(token);
 
         //提交给reaml进行登入 如果错误会抛出异常进行捕获
-        getSubject(servletRequest , servletResponse);
+        getSubject(servletRequest , servletResponse).login(jwtToken);;
 
         //执行方法中没有抛出异常就表示登录成功
         return true;

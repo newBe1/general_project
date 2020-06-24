@@ -1,6 +1,5 @@
 package com.example.dao;
 
-import com.example.entity.SysRole;
 import com.example.entity.SysUser;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
@@ -9,8 +8,9 @@ import java.util.List;
  * 用户信息表(SysUser)表数据库访问层
  *
  * @author makejava
- * @since 2020-06-23 13:34:49
+ * @since 2020-06-24 16:30:18
  */
+ @Mapper("sysUserDao"))
 public interface SysUserDao {
 
     /**
@@ -62,8 +62,5 @@ public interface SysUserDao {
      * @return 影响行数
      */
     int deleteById(Long userId);
-
-
-    List<SysRole> getRolesByUserId(Long userId);
 
 }

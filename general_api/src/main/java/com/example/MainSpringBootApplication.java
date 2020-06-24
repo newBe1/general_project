@@ -1,7 +1,10 @@
 package com.example;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,7 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Date: 2020-06-17
  * Time: 18:29
  */
-@SpringBootApplication
+@ComponentScan("com.example.dao")
+@SpringBootApplication()
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class MainSpringBootApplication {
     public static void main(String[] args) {
         SpringApplication.run(MainSpringBootApplication.class);

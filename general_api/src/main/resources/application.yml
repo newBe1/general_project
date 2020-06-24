@@ -1,10 +1,13 @@
+server:
+  port: 9999
+
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/ry?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
     password: root
     type: com.alibaba.druid.pool.DruidDataSource
-    driverClassName: com.mysql.cj.jdbc.Driver
+    driverClassName: com.mysql.jdbc.Driver
     # 初始化时建立物理连接连接的个数
     initialSize: 5
     # 最小连接池数量
@@ -58,9 +61,7 @@ mybatis:
   # 虽然可以配置这项来进行pojo包扫描，但其实我更倾向于在mapper.xml写全类名
   type-aliases-package: com.example.entity
 
-server:
-  port: 9999
-#日志
+#mybatis日志
 logging:
   level:
     com:

@@ -14,7 +14,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-06-23 13:37:16
  */
-@Service("sysMenuService")
+@Service
 public class SysMenuServiceImpl implements SysMenuService {
     @Resource
     private SysMenuDao sysMenuDao;
@@ -76,4 +76,11 @@ public class SysMenuServiceImpl implements SysMenuService {
     public boolean deleteById(Long menuId) {
         return this.sysMenuDao.deleteById(menuId) > 0;
     }
+
+    @Override
+    public List<SysMenu> queryAll(SysMenu sysMenu) {
+        return this.sysMenuDao.queryAll(sysMenu);
+    }
+
+
 }

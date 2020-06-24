@@ -14,7 +14,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-06-23 13:33:35
  */
-@Service("sysUserRoleService")
+@Service
 public class SysUserRoleServiceImpl implements SysUserRoleService {
     @Resource
     private SysUserRoleDao sysUserRoleDao;

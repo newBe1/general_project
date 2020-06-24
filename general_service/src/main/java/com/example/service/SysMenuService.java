@@ -52,4 +52,11 @@ public interface SysMenuService {
      */
     boolean deleteById(Long menuId);
 
+    /**
+     * 通过实体作为筛选条件查询
+     * @param sysMenu
+     * @return
+     */
+    List<SysMenu> queryAll(SysMenu sysMenu);
+
 }

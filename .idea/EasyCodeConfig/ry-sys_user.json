@@ -145,6 +145,6 @@
   "pkColumn" : null,
   "otherColumn" : null,
   "savePackageName" : "com.example",
-  "savePath" : "./general_service/src/main/java/com/example",
-  "saveModelName" : "general_service"
+  "savePath" : "./general_dao/src/main/java/com/example",
+  "saveModelName" : "general_dao"
 }
