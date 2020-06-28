@@ -1,6 +1,8 @@
 package com.example.dao;
 
+import com.example.entity.SysRole;
 import com.example.entity.SysUser;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
@@ -10,7 +12,7 @@ import java.util.List;
  * @author makejava
  * @since 2020-06-24 16:30:18
  */
- @Mapper("sysUserDao"))
+ @Mapper
 public interface SysUserDao {
 
     /**
@@ -63,4 +65,5 @@ public interface SysUserDao {
      */
     int deleteById(Long userId);
 
+    List<SysRole> getRolesByUserId(Long userId);
 }

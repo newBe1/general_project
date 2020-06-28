@@ -5,6 +5,7 @@ import com.example.dao.SysUserDao;
 import com.example.entity.SysUser;
 import com.example.enums.CodeMsg;
 import com.example.uitls.JwtUtil;
+import com.example.uitls.ShiroUtils;
 import com.example.utils.MyResult;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
@@ -39,7 +40,7 @@ public class LoginController {
 
         try {
             //获得当前用户到登录对象，现在状态为未认证
-            Subject subject = SecurityUtils.getSubject();
+            Subject subject = ShiroUtils.getSubject();
 
             //用户名密码令牌
             UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(userName, passWord);
