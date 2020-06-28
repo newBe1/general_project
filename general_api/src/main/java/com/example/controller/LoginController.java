@@ -1,6 +1,7 @@
-package com.example.system;
+package com.example.controller;
 
 import cn.hutool.core.util.StrUtil;
+import com.example.annotations.SysLog;
 import com.example.dao.SysUserDao;
 import com.example.entity.SysUser;
 import com.example.enums.CodeMsg;
@@ -11,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +33,8 @@ public class LoginController {
     @Resource
     private SysUserDao sysUserDao;
 
-    @PostMapping("login")
+    @PostMapping("/login")
+    @SysLog()
     public MyResult login(String userName , String passWord){
         log.info("username:{},password:{}",userName,passWord);
         if(StrUtil.isBlank(userName) && StrUtil.isBlank(passWord)){
@@ -71,5 +74,10 @@ public class LoginController {
             log.warn("登录出错");
             throw ae;
         }
+    }
+
+    @GetMapping("test")
+    public String test(){
+        return "hello world";
     }
 }

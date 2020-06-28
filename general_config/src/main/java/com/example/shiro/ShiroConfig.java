@@ -94,7 +94,7 @@ public class ShiroConfig {
      * 注入 securityManager
      * @return
      */
-    @Bean
+    @Bean("SecurityManager")
     public SecurityManager getSecurityManager(JwtRealm jwtRealm) {
 
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();

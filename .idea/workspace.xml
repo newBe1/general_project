@@ -2,13 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27c6c18d-1492-423d-8e47-0433ae2b8412" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_api/src/main/java/com/example/system/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/src/main/java/com/example/system/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/commons/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_api/src/main/java/com/example/MainSpringBootApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/src/main/java/com/example/MainSpringBootApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_api/src/main/java/com/example/system/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/src/main/java/com/example/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/general_api/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/general_dao/src/main/java/com/example/dao/SysUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_dao/src/main/java/com/example/dao/SysUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_api/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_api/target/classes/com/example/MainSpringBootApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_api/target/classes/com/example/MainSpringBootApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_config/src/main/java/com/example/filter/JwtFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/src/main/java/com/example/filter/JwtFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/ShiroConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_dao/target/classes/mapper/SysUserDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/general_dao/target/classes/mapper/SysUserDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/general_entity/target/classes/com/example/entity/SysUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/general_entity/target/classes/com/example/entity/SysUser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sql/sys.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/sys.sql" afterDir="false" />
     </list>
+    <ignored path="$PROJECT_DIR$/general_dao/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/mybatis-generatorConfig/target/" />
+    <ignored path="$PROJECT_DIR$/commons/target/" />
+    <ignored path="$PROJECT_DIR$/general_api/target/" />
+    <ignored path="$PROJECT_DIR$/general_service/target/" />
+    <ignored path="$PROJECT_DIR$/general_config/target/" />
+    <ignored path="$PROJECT_DIR$/general_entity/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +60,109 @@
     <select />
   </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/general_api/src/main/java/com/example/MainSpringBootApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="15" column="72" selection-start-line="15" selection-start-column="72" selection-end-line="15" selection-end-column="72" />
+              <folding>
+                <element signature="e#695#696#0" expanded="true" />
+                <element signature="e#765#766#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/general_config/src/main/java/com/example/uitls/ShiroUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+              <folding>
+                <element signature="e#704#705#0" expanded="true" />
+                <element signature="e#753#754#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/ShiroConfig.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1879">
+              <caret line="97" column="54" selection-start-line="97" selection-start-column="46" selection-end-line="97" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-721" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/commons/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="178">
+              <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/general_api/src/main/java/com/example/controller/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="38" column="62" lean-forward="true" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
+              <folding>
+                <element signature="e#2352#2353#0" expanded="true" />
+                <element signature="e#2376#2377#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/general_config/src/main/java/com/example/filter/JwtFilter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-232">
+              <caret line="45" column="22" lean-forward="true" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/general_api/src/main/resources/application.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-605" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/commons/src/main/java/com/example/annotations/SysLog.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-150">
+              <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/JwtRealm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="794">
+              <caret line="106" selection-start-line="106" selection-end-line="106" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -61,16 +176,28 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/ShiroConfig.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/pom.xml" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/commons/pom.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/general_api/src/main/java/com/example/MainSpringBootApplication.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/ShiroConfig.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/commons/pom.xml" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/commons/pom.xml" />
+        <option value="$PROJECT_DIR$/general_api/src/main/java/com/example/system/LoginController.java" />
+        <option value="$PROJECT_DIR$/general_api/src/main/java/com/example/MainSpringBootApplication.java" />
+        <option value="$PROJECT_DIR$/general_api/src/main/java/com/example/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/general_config/src/main/java/com/example/filter/JwtFilter.java" />
+        <option value="$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/ShiroConfig.java" />
+      </list>
+    </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="E:/tools/apache-maven-3.6.1" />
-        <option name="userSettingsFile" value="E:\tools\apache-maven-3.6.1\conf\settings.xml" />
+        <option name="mavenHome" value="D:/tools/maven/apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="D:\tools\maven\apache-maven-3.6.1\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -79,7 +206,152 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="130" />
+    <option name="y" value="105" />
+    <option name="width" value="1170" />
+    <option name="height" value="700" />
+  </component>
   <component name="ProjectId" id="1dRVmItSnX5dtewgIXDB2HVhdCS" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="general_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="general_project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="general_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="general_project" type="462c0819:PsiDirectoryNode" />
+              <item name="commons" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="general_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="general_project" type="462c0819:PsiDirectoryNode" />
+              <item name="general_api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="general_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="general_project" type="462c0819:PsiDirectoryNode" />
+              <item name="general_api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="general_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="general_project" type="462c0819:PsiDirectoryNode" />
+              <item name="general_api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="general_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="general_project" type="462c0819:PsiDirectoryNode" />
+              <item name="general_api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="general_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="general_project" type="462c0819:PsiDirectoryNode" />
+              <item name="general_api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="general_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="general_project" type="462c0819:PsiDirectoryNode" />
+              <item name="general_api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="general_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="general_project" type="462c0819:PsiDirectoryNode" />
+              <item name="general_api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="general_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="general_project" type="462c0819:PsiDirectoryNode" />
+              <item name="general_config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="general_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="general_project" type="462c0819:PsiDirectoryNode" />
+              <item name="general_config" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="general_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="general_project" type="462c0819:PsiDirectoryNode" />
+              <item name="general_config" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="general_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="general_project" type="462c0819:PsiDirectoryNode" />
+              <item name="general_config" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="general_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="general_project" type="462c0819:PsiDirectoryNode" />
+              <item name="general_config" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="general_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="general_project" type="462c0819:PsiDirectoryNode" />
+              <item name="general_config" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+              <item name="filter" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="general_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="general_project" type="462c0819:PsiDirectoryNode" />
+              <item name="general_config" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+              <item name="shiro" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RequestMappingsPanelOrder0" value="0" />
@@ -91,11 +363,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../苏州相城人社项目/项目/code/rear/wisdom-scoiety" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.7205882" />
-    <property name="settings.editor.selected.configurable" value="com.sjhy.plugin.ui.TemplateSettingPanel" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -257,6 +529,7 @@
       <workItem from="1592904916951" duration="9611000" />
       <workItem from="1592977704901" duration="9225000" />
       <workItem from="1593323678290" duration="1963000" />
+      <workItem from="1593351561340" duration="2654000" />
     </task>
     <task id="LOCAL-00001" summary="修改 mybatis自动生成工程">
       <created>1592744062933</created>
@@ -275,6 +548,48 @@
     <option name="localTasksCounter" value="3" />
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2654000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="UI Designer" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Capture Tool" />
+      <window_info id="Web" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1609808" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Spring" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" weight="0.32938644" />
+      <window_info anchor="bottom" id="Messages" weight="0.32938644" />
+      <window_info anchor="bottom" id="Java Enterprise" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32938644" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3315393" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4262648" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Maven" weight="0.1337953" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Bean Validation" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -284,8 +599,28 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
               <option name="COLUMN_ORDER" />
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
           </value>
         </entry>
       </map>
@@ -295,5 +630,92 @@
     <MESSAGE value="修改 mybatis自动生成工程" />
     <MESSAGE value="修改登陆" />
     <option name="LAST_COMMIT_MESSAGE" value="修改登陆" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/commons/src/main/java/com/example/annotations/SysLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-150">
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/general_api/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-605" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-721" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commons/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/general_api/src/main/java/com/example/MainSpringBootApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="15" column="72" selection-start-line="15" selection-start-column="72" selection-end-line="15" selection-end-column="72" />
+          <folding>
+            <element signature="e#695#696#0" expanded="true" />
+            <element signature="e#765#766#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/shiro/shiro-core/1.3.2/shiro-core-1.3.2.jar!/org/apache/shiro/SecurityUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/general_api/src/main/java/com/example/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="38" column="62" lean-forward="true" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
+          <folding>
+            <element signature="e#2352#2353#0" expanded="true" />
+            <element signature="e#2376#2377#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/JwtRealm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="794">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/general_config/src/main/java/com/example/filter/JwtFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-232">
+          <caret line="45" column="22" lean-forward="true" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/general_config/src/main/java/com/example/uitls/ShiroUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="24" column="42" lean-forward="true" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+          <folding>
+            <element signature="e#704#705#0" expanded="true" />
+            <element signature="e#753#754#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/general_config/src/main/java/com/example/shiro/ShiroConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1879">
+          <caret line="97" column="54" selection-start-line="97" selection-start-column="46" selection-end-line="97" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

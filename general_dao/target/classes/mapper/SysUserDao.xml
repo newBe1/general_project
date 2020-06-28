@@ -5,7 +5,6 @@
     <resultMap type="com.example.entity.SysUser" id="SysUserMap">
         <result property="userId" column="user_id" jdbcType="INTEGER"/>
         <result property="deptId" column="dept_id" jdbcType="INTEGER"/>
-        <result property="loginName" column="login_name" jdbcType="VARCHAR"/>
         <result property="userName" column="user_name" jdbcType="VARCHAR"/>
         <result property="userType" column="user_type" jdbcType="VARCHAR"/>
         <result property="email" column="email" jdbcType="VARCHAR"/>
@@ -28,7 +27,7 @@
     <!--查询单个-->
     <select id="queryById" resultMap="SysUserMap">
         select
-          user_id, dept_id, login_name, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark
+          user_id, dept_id, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark
         from ry.sys_user
         where user_id = #{userId}
     </select>
@@ -36,7 +35,7 @@
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="SysUserMap">
         select
-          user_id, dept_id, login_name, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark
+          user_id, dept_id, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark
         from ry.sys_user
         limit #{offset}, #{limit}
     </select>
@@ -44,7 +43,7 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="SysUserMap">
         select
-          user_id, dept_id, login_name, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark
+          user_id, dept_id, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark
         from ry.sys_user
         <where>
             <if test="userId != null">
@@ -52,9 +51,6 @@
             </if>
             <if test="deptId != null">
                 and dept_id = #{deptId}
-            </if>
-            <if test="loginName != null and loginName != ''">
-                and login_name = #{loginName}
             </if>
             <if test="userName != null and userName != ''">
                 and user_name = #{userName}
@@ -113,7 +109,7 @@
     <!--新增所有列-->
     <insert id="insert" keyProperty="userId" useGeneratedKeys="true">
         insert into ry.sys_user(dept_id, login_name, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark)
-        values (#{deptId}, #{loginName}, #{userName}, #{userType}, #{email}, #{phonenumber}, #{sex}, #{avatar}, #{password}, #{salt}, #{status}, #{delFlag}, #{loginIp}, #{loginDate}, #{createBy}, #{createTime}, #{updateBy}, #{updateTime}, #{remark})
+        values (#{deptId}, #{loginName}, #{userType}, #{email}, #{phonenumber}, #{sex}, #{avatar}, #{password}, #{salt}, #{status}, #{delFlag}, #{loginIp}, #{loginDate}, #{createBy}, #{createTime}, #{updateBy}, #{updateTime}, #{remark})
     </insert>
 
     <!--通过主键修改数据-->
@@ -122,9 +118,6 @@
         <set>
             <if test="deptId != null">
                 dept_id = #{deptId},
-            </if>
-            <if test="loginName != null and loginName != ''">
-                login_name = #{loginName},
             </if>
             <if test="userName != null and userName != ''">
                 user_name = #{userName},

@@ -25,7 +25,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
      * */
     @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws UnauthorizedException {
-        logger.warn("isAccessAllowed 方法被调用 判断请求头是否带有token ");
+        logger.info("isAccessAllowed 方法被调用 判断请求头是否带有token ");
         if(((HttpServletRequest) request).getHeader("Token") != null){
             //如何存在 则进入executeLogin 方法执行登入，检查token 是否有效
             try {
@@ -47,7 +47,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
      */
     @Override
     protected boolean executeLogin(ServletRequest servletRequest, ServletResponse servletResponse) throws Exception {
-        logger.warn("executeLogin 方法被调用  检验token 是否有效");
+        logger.info("executeLogin 方法被调用  检验token 是否有效");
 
         HttpServletRequest httpServletRequest = (HttpServletRequest)servletRequest;
         String token = httpServletRequest.getHeader("Token");
