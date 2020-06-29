@@ -76,8 +76,4 @@ public class LoginController {
         }
     }
 
-    @GetMapping("test")
-    public String test(){
-        return "hello world";
-    }
 }
