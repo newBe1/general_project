@@ -56,6 +56,18 @@ spring:
     restart:
       # 热部署开关
       enabled: true
+  #redis
+#  redis:
+#    database: 0
+#    host: 129.28.169.156
+#    port: 6379
+#    password: root
+#    pool:
+#      max-active: 8
+#      max-wait: -1
+#      max-idle: 8
+#      min-idle: 0
+#    timeout: 300
 mybatis:
   mapper-locations: classpath:mappers/*.xml
   # 虽然可以配置这项来进行pojo包扫描，但其实我更倾向于在mapper.xml写全类名
@@ -69,3 +81,4 @@ logging:
   file:
     path: logs
     name: controller.log
+

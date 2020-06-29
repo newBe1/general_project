@@ -87,4 +87,9 @@ public class SysUserServiceImpl implements SysUserService {
         Set<SysRole> roleSet = new HashSet<>(roleList);
         return roleSet;
     }
+
+    @Override
+    public SysUser queryByUserName(String userName) {
+        return this.sysUserDao.queryByUserName(userName);
+    }
 }

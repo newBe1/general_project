@@ -1,4 +1,4 @@
-package com.example.shiro;
+package com.example.shiro.jwt;
 
 import org.apache.shiro.authc.AuthenticationToken;
 

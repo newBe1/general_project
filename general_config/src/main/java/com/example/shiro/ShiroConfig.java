@@ -1,9 +1,9 @@
 package com.example.shiro;
 
-import com.example.entity.SysMenu;
-import com.example.filter.JwtFilter;
+import com.example.shiro.jwt.JwtFilter;
 import com.example.service.SysMenuService;
-import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import com.example.shiro.cache.CustomCacheManager;
+import com.example.shiro.jwt.JwtRealm;
 import org.apache.shiro.mgt.DefaultSessionStorageEvaluator;
 import org.apache.shiro.mgt.DefaultSubjectDAO;
 import org.apache.shiro.mgt.SecurityManager;
@@ -19,12 +19,11 @@ import javax.annotation.Resource;
 import javax.servlet.Filter;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
- * Description:
+ * Description: shiro配置类
  * User: Ryan
  * Date: 2020-04-23
  * Time: 11:22
@@ -34,21 +33,32 @@ public class ShiroConfig {
     @Resource
     private SysMenuService sysMenuService;
 
-    @Bean("hashedCredentialsMatcher")
-    public HashedCredentialsMatcher hashedCredentialsMatcher() {
-        HashedCredentialsMatcher credentialsMatcher =
-                new HashedCredentialsMatcher();
-        //指定加密方式为MD5
-        credentialsMatcher.setHashAlgorithmName("MD5");
-        //加密次数
-        credentialsMatcher.setHashIterations(1024);
-        credentialsMatcher.setStoredCredentialsHexEncoded(true);
-        return credentialsMatcher;
+    /**
+     * 配置使用自定义Realm，关闭Shiro自带的session
+     * 详情见文档 http://shiro.apache.org/session-management.html#SessionManagement-StatelessApplications%28Sessionless%29
+     * @param jwtRealm
+     * @return org.apache.shiro.web.mgt.DefaultWebSecurityManager
+     */
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+    @Bean("securityManager")
+    public DefaultWebSecurityManager defaultWebSecurityManager(JwtRealm jwtRealm) {
+        DefaultWebSecurityManager defaultWebSecurityManager = new DefaultWebSecurityManager();
+        // 使用自定义Realm
+        defaultWebSecurityManager.setRealm(jwtRealm);
+        // 关闭Shiro自带的session
+        DefaultSubjectDAO subjectDAO = new DefaultSubjectDAO();
+        DefaultSessionStorageEvaluator defaultSessionStorageEvaluator = new DefaultSessionStorageEvaluator();
+        defaultSessionStorageEvaluator.setSessionStorageEnabled(false);
+        subjectDAO.setSessionStorageEvaluator(defaultSessionStorageEvaluator);
+        defaultWebSecurityManager.setSubjectDAO(subjectDAO);
+        // 设置自定义Cache缓存
+        defaultWebSecurityManager.setCacheManager(new CustomCacheManager());
+        return defaultWebSecurityManager;
     }
 
     //设置拦截器  对访问的接口进行拦截和过滤
     @Bean
-    public ShiroFilterFactoryBean factory(SecurityManager securityManager) {
+    public ShiroFilterFactoryBean factory(DefaultWebSecurityManager securityManager) {
 
         ShiroFilterFactoryBean factoryBean = new ShiroFilterFactoryBean();
 
@@ -63,9 +73,9 @@ public class ShiroConfig {
         // 设置登录成功跳转Url
         factoryBean.setSuccessUrl("/main");
         // 设置登录跳转Url
-        factoryBean.setLoginUrl("/toLogin");
+        factoryBean.setLoginUrl("/sys/login");
         // 设置未授权提示Url
-        factoryBean.setUnauthorizedUrl("/error/unAuth");
+        factoryBean.setUnauthorizedUrl("/sys/unauthorized/无权限");
 
         /**
          * anon：匿名用户可访问
@@ -75,41 +85,21 @@ public class ShiroConfig {
          * role：对应角色权限可访问
          **/
         Map<String, String> filterRuleMap = new HashMap<>();
+        //设置所有请求通过jwtFilter
         filterRuleMap.put("/**","jwt");
-        filterRuleMap.put("/logout", "logout");
-        filterRuleMap.put("/login","anon");
+        //访问 /unauthorized/** 不通过JWTFilter
+        filterRuleMap.put("/sys/unauthorized/**", "anon");
+        filterRuleMap.put("/sys/login/", "anon");
 
         //只要在Permission表的资源都要做权限拦截  以permission.getUrl() 作为拦截路径
-        List<SysMenu> sysMenuList = sysMenuService.queryAll(null);
+        /*List<SysMenu> sysMenuList = sysMenuService.queryAll(null);
         for (SysMenu sysMenu : sysMenuList) {
             //reslt.put("/authorized.html", "perms[user:add]");//由于是代码，可以注入Service从数据库中查询
             filterRuleMap.put(sysMenu.getUrl(), "crmPerms[" + sysMenu.getPerms() + "]");
-        }
+        }*/
 
         factoryBean.setFilterChainDefinitionMap(filterRuleMap);
         return factoryBean;
-    }
-
-    /**
-     * 注入 securityManager
-     * @return
-     */
-    @Bean("SecurityManager")
-    public SecurityManager getSecurityManager(JwtRealm jwtRealm) {
-
-        DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        // 关联realm.
-        securityManager.setRealm(jwtRealm);
-        /*
-         * 关闭shiro自带的session，详情见文档
-         * http://shiro.apache.org/session-management.html#SessionManagement-StatelessApplications%28Sessionless%29
-         */
-        DefaultSubjectDAO subjectDAO = new DefaultSubjectDAO();
-        DefaultSessionStorageEvaluator defaultSessionStorageEvaluator = new DefaultSessionStorageEvaluator();
-        defaultSessionStorageEvaluator.setSessionStorageEnabled(false);
-        subjectDAO.setSessionStorageEvaluator(defaultSessionStorageEvaluator);
-        securityManager.setSubjectDAO(subjectDAO);
-        return securityManager;
     }
 
     /**

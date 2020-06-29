@@ -11,7 +11,7 @@
     <select id="queryById" resultMap="SysRoleMenuMap">
         select
           role_id, menu_id
-        from ry.sys_role_menu
+        from sys_role_menu
         where role_id = #{roleId}
     </select>
 
@@ -19,7 +19,7 @@
     <select id="queryAllByLimit" resultMap="SysRoleMenuMap">
         select
           role_id, menu_id
-        from ry.sys_role_menu
+        from sys_role_menu
         limit #{offset}, #{limit}
     </select>
 
@@ -27,7 +27,7 @@
     <select id="queryAll" resultMap="SysRoleMenuMap">
         select
           role_id, menu_id
-        from ry.sys_role_menu
+        from sys_role_menu
         <where>
             <if test="roleId != null">
                 and role_id = #{roleId}
@@ -40,13 +40,13 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="roleId" useGeneratedKeys="true">
-        insert into ry.sys_role_menu()
+        insert into sys_role_menu()
         values ()
     </insert>
 
     <!--通过主键修改数据-->
     <update id="update">
-        update ry.sys_role_menu
+        update sys_role_menu
         <set>
         </set>
         where role_id = #{roleId}
@@ -54,7 +54,7 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from ry.sys_role_menu where role_id = #{roleId}
+        delete from sys_role_menu where role_id = #{roleId}
     </delete>
 
 </mapper>

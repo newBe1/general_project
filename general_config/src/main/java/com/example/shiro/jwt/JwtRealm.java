@@ -1,20 +1,22 @@
-package com.example.shiro;
+package com.example.shiro.jwt;
 
+import cn.hutool.core.util.StrUtil;
 import com.example.entity.SysMenu;
 import com.example.entity.SysRole;
 import com.example.entity.SysUser;
+import com.example.redis.RedisConstant;
 import com.example.service.SysRoleService;
 import com.example.service.SysUserService;
+import com.example.uitls.JedisUtil;
 import com.example.uitls.JwtUtil;
-import org.apache.log4j.Logger;
+import com.example.uitls.ShiroUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
-import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.apache.shiro.util.ByteSource;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -28,8 +30,8 @@ import java.util.*;
  * Time: 10:54
  */
 @Component
+@Slf4j
 public class JwtRealm extends AuthorizingRealm {
-    private static Logger logger = Logger.getLogger(AuthorizingRealm.class);
     @Resource
     private SysUserService sysUserService;
 
@@ -52,9 +54,8 @@ public class JwtRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        logger.info("------执行授权--------");
-        Long userId = JwtUtil.getUserId(principals.toString());
-        SysUser user = sysUserService.queryById(userId);
+        log.info("------执行授权--------");
+        SysUser user = ShiroUtils.getSysUser();
 
         //获取用户成功 对此用户进行授权
         if (user != null) {
@@ -91,53 +92,45 @@ public class JwtRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        logger.info("------执行认证--------");
+        log.info("------执行认证--------");
 
+        //获取token 中的用户名信息
         String jwt = (String) token.getCredentials();
-        if (jwt == null) {
-            throw new AuthenticationException("token过期，请重新登录");
+        String userName = JwtUtil.getClaim(jwt, RedisConstant.USERNAME);
+
+        if (StrUtil.isBlank(userName)) {
+            throw new AuthenticationException("Token中用户名为空(The userName in Token is empty)");
         }
 
-        //下面是验证这个user是否是真实存在的
-        Long userId = JwtUtil.getUserId(jwt);
-
-        if (userId == null || !JwtUtil.verify(jwt, userId)) {
-            throw new AuthenticationException("token认证失败！");
-        }
-
-        SysUser user = sysUserService.queryById(userId);
+        SysUser model = new SysUser();
+        model.setUserName(userName);
+        SysUser user = sysUserService.queryByUserName(userName);
         if (user == null) {
             throw new AuthenticationException("用户不存在");
         }
 
-        // 查询用户的角色和权限存到SimpleAuthenticationInfo中，这样在其它地方
-        // SecurityUtils.getSubject().getPrincipal()就能拿出用户的所有信息，包括角色和权限
-        Set<SysRole> roles = sysUserService.getRolesByUserId(userId);
-        user.setRoles(roles);
+        //开始认证
+        if (JwtUtil.verify(jwt) && JedisUtil.exists(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName)) {
 
-        Set<SysMenu> menus = sysRoleService.getMenusByUserId(userId);
-        user.setMenus(menus);
+            //获取redis中设置的token时间戳并与token中携带的时间戳进行比较
+            String currentTimeMillsRedis = JedisUtil.getObject(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName).toString();
+            if (JwtUtil.getClaim(jwt, RedisConstant.CURRENT_TIME_MILLIS).equals(currentTimeMillsRedis)) {
 
-        logger.info("用户" + user.getUserName() + "正在使用token登录");
+                // 查询用户的角色和权限存到SimpleAuthenticationInfo中，这样在其它地方通过SecurityUtils.getSubject().getPrincipal()就能拿出用户的所有信息，包括角色和权限
+                Set<SysRole> roles = sysUserService.getRolesByUserId(user.getUserId());
+                user.setRoles(roles);
 
-        //这里返回的是类似账号密码的东西，但是jwtToken都是jwt字符串。还需要一个该Realm的类名
-        return new SimpleAuthenticationInfo(jwt, jwt, "JwtRealm");
-    }
+                Set<SysMenu> menus = sysRoleService.getMenusByUserId(user.getUserId());
+                user.setMenus(menus);
 
-    // 模拟Shiro用户加密，假设用户密码为123456
-    public static void main(String[] args) {
-        // 用户名
-        String username = "yanrui";
-        // 用户密码
-        String password = "123456";
-        // 加密方式
-        String hashAlgorithName = "MD5";
-        // 加密次数
-        int hashIterations = 1024;
-        ByteSource credentialsSalt = ByteSource.Util.bytes(username);
-        Object obj = new SimpleHash(hashAlgorithName, password,
-                credentialsSalt, hashIterations);
-        System.out.println(obj);
+                log.info("用户" + user.getUserName() + "正在使用token登录");
+
+                //这里返回的是类似账号密码的东西，但是jwtToken都是jwt字符串。还需要一个该Realm的类名
+                return new SimpleAuthenticationInfo(jwt, jwt, "JwtRealm");
+            }
+            throw new AuthenticationException("Token已过期(Token expired or incorrect.)");
+        }
+        throw new AuthenticationException("token 无效请重新登陆");
     }
 
     /**

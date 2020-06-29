@@ -61,4 +61,6 @@ public interface SysUserService {
      * @return
      */
     Set<SysRole> getRolesByUserId(Long userId);
+
+    SysUser queryByUserName(String userName);
 }

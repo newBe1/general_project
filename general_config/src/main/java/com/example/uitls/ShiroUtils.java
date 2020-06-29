@@ -2,7 +2,7 @@ package com.example.uitls;
 
 import cn.hutool.core.util.StrUtil;
 import com.example.entity.SysUser;
-import com.example.shiro.JwtRealm;
+import com.example.shiro.jwt.JwtRealm;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.mgt.RealmSecurityManager;

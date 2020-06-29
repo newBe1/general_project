@@ -28,7 +28,7 @@
     <select id="queryById" resultMap="SysUserMap">
         select
           user_id, dept_id, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark
-        from ry.sys_user
+        from sys_user
         where user_id = #{userId}
     </select>
 
@@ -36,7 +36,7 @@
     <select id="queryAllByLimit" resultMap="SysUserMap">
         select
           user_id, dept_id, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark
-        from ry.sys_user
+        from sys_user
         limit #{offset}, #{limit}
     </select>
 
@@ -44,7 +44,7 @@
     <select id="queryAll" resultMap="SysUserMap">
         select
           user_id, dept_id, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark
-        from ry.sys_user
+        from sys_user
         <where>
             <if test="userId != null">
                 and user_id = #{userId}
@@ -108,13 +108,13 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="userId" useGeneratedKeys="true">
-        insert into ry.sys_user(dept_id, login_name, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark)
+        insert into sys_user(dept_id, login_name, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark)
         values (#{deptId}, #{loginName}, #{userType}, #{email}, #{phonenumber}, #{sex}, #{avatar}, #{password}, #{salt}, #{status}, #{delFlag}, #{loginIp}, #{loginDate}, #{createBy}, #{createTime}, #{updateBy}, #{updateTime}, #{remark})
     </insert>
 
     <!--通过主键修改数据-->
     <update id="update">
-        update ry.sys_user
+        update sys_user
         <set>
             <if test="deptId != null">
                 dept_id = #{deptId},
@@ -176,11 +176,18 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from ry.sys_user where user_id = #{userId}
+        delete from sys_user where user_id = #{userId}
     </delete>
 
     <select id="getRolesByUserId" resultType="com.example.entity.SysRole">
         select sr.* from sys_role sr left join sys_user_role sur on sr.role_id = sur.role_id where sur.user_id = #{userId}
+    </select>
+
+    <select id="queryByUserName" resultMap="SysUserMap">
+        select
+          user_id, dept_id, user_name, user_type, email, phonenumber, sex, avatar, password, salt, status, del_flag, login_ip, login_date, create_by, create_time, update_by, update_time, remark
+        from sys_user
+        where user_name = #{userName}
     </select>
 
 </mapper>
