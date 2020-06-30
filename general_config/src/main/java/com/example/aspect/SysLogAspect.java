@@ -9,6 +9,7 @@ import com.example.uitls.ShiroUtils;
 import com.example.utils.ServletUtils;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.lang.reflect.Method;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -55,57 +57,66 @@ public class SysLogAspect {
      * 上面四个方法可以使用JoinPoint，JoinPoint包含了类名，被切面的方法名，参数等信息。
      * @param joinPoint
      */
-    @AfterReturning("logPointCut()")
-    public void saveSysLog(JoinPoint joinPoint){
-        //保存日志
-        OperateLog operateLog = new OperateLog();
+    @AfterThrowing(value = "logPointCut()" , throwing = "e")
+    public void doAfterThrowing(JoinPoint joinPoint , Exception e){
+        saveSysLog(joinPoint , e);
+    }
 
-        //从切面织入点通过反射机制获取织入点
-        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
-        //获取织入点的方法
-        Method method = signature.getMethod();
+    public void saveSysLog(JoinPoint joinPoint , Exception e){
+        try {
+            //保存日志
+            OperateLog operateLog = new OperateLog();
 
-        //获取请求的方法名
-        String methodName = method.getName();
+            //从切面织入点通过反射机制获取织入点
+            MethodSignature signature = (MethodSignature) joinPoint.getSignature();
+            //获取织入点的方法
+            Method method = signature.getMethod();
+
+            //获取请求的方法名
+            String methodName = method.getName();
 
 
-        //获取操作
-        SysLog sysLog = method.getAnnotation(SysLog.class);
-        if(log != null){
-            Integer operateType = sysLog.operateType().ordinal();     //获取该枚举对象的位置的索引值
-            String operateMsg = sysLog.operateMsg();
+            //获取操作
+            SysLog sysLog = method.getAnnotation(SysLog.class);
+            if(log != null){
+                Integer operateType = sysLog.operateType().ordinal();     //获取该枚举对象的位置的索引值
+                String operateMsg = sysLog.operateMsg();
 
-            operateLog.setOperateMsg(operateMsg);
-            operateLog.setOperateType(operateType);
+                operateLog.setOperateMsg(operateMsg);
+                operateLog.setOperateType(operateType);
+            }
+
+            //获取请求的类名
+            String className = joinPoint.getTarget().getClass().getName();
+            operateLog.setMethodName(className + "." +methodName +"()");
+
+            //获取请求参数
+            Map<String, String[]> map = ServletUtils.getRequest().getParameterMap();
+            String params = JSON.toJSONString(map);
+            operateLog.setParams(params);
+
+            //获取请求时间
+            operateLog.setCreateDate(new Date());
+
+            //获取操作用户
+            SysUser user = ShiroUtils.getSysUser();
+            if(user != null){
+                operateLog.setUsername(user.getUserName());
+            }
+
+            //获取操作用户的ip地址
+            String ip = ShiroUtils.getIp();
+            operateLog.setIp(ip);
+
+            //获取操作url
+            operateLog.setOperateUrl(ServletUtils.getRequest().getRequestURI());
+
+            //保存日志到数据库
+            operateLogService.add(operateLog);
+        } catch (Exception ex) {
+            log.error("-------前置通知异常 ， 异常信息：{}--------" + ex.getMessage());
+            ex.printStackTrace();
         }
-
-        //获取请求的类名
-        String className = joinPoint.getTarget().getClass().getName();
-        operateLog.setMethodName(className + "." +methodName +"()");
-
-        //获取请求参数
-        Object[] args = joinPoint.getArgs();
-        String params = JSON.toJSONString(args);
-        operateLog.setParams(params);
-
-        //获取请求时间
-        operateLog.setCreateDate(new Date());
-
-        //获取操作用户
-        SysUser user = ShiroUtils.getSysUser();
-        if(user != null){
-            operateLog.setUsername(user.getUserName());
-        }
-
-        //获取操作用户的ip地址
-        String ip = ShiroUtils.getIp();
-        operateLog.setIp(ip);
-
-        //获取操作url
-        operateLog.setOperateUrl(ServletUtils.getRequest().getRequestURI());
-
-        //保存日志到数据库
-        operateLogService.add(operateLog);
     }
 
 

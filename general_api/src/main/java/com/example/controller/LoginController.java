@@ -119,4 +119,9 @@ public class LoginController {
         return MyResult.customerRet(401,message,null);
     }
 
+    @GetMapping("test")
+    public MyResult test(){
+        return MyResult.success("hello world");
+    }
+
 }
