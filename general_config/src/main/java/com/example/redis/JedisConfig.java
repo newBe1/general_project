@@ -1,13 +1,13 @@
 package com.example.redis;
 
 import cn.hutool.core.util.StrUtil;
-import org.springframework.beans.factory.annotation.Value;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
-import org.springframework.context.annotation.Bean;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,112 +21,53 @@ import org.springframework.context.annotation.Bean;
 @PropertySource("classpath:config.properties")
 public class JedisConfig {
 
-    @Value("${redis.host}")
+    @Value("${spring.redis.host}")
     private String host;
 
-    @Value("${redis.port}")
+    @Value("${spring.redis.port}")
     private int port;
 
-    @Value("${redis.password}")
-    private String password;
-
-    @Value("${redis.timeout}")
+    @Value("${spring.redis.timeout}")
     private int timeout;
 
-    @Value("${redis.pool.max-active}")
-    private int maxActive;
-
-    @Value("${redis.pool.max-wait}")
-    private int maxWait;
-
-    @Value("${redis.pool.max-idle}")
+    @Value("${spring.redis.jedis.pool.max-idle}")
     private int maxIdle;
 
-    @Value("${redis.pool.min-idle}")
+    @Value("${spring.redis.jedis.pool.max-wait}")
+    private long maxWaitMillis;
+
+    @Value("${spring.redis.password}")
+    private String password;
+
+    @Value("${spring.redis.block-when-exhausted}")
+    private boolean blockWhenExhausted;
+
+    @Value("${spring.redis.jedis.pool.max-active}")
+    private int maxActive;
+
+    @Value("${spring.redis.jedis.pool.min-idle}")
     private int minIdle;
 
     @Bean
-    public JedisPool redisPoolFactory() {
-        try {
-            JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
-            jedisPoolConfig.setMaxIdle(maxIdle);
-            jedisPoolConfig.setMaxWaitMillis(maxWait);
-            jedisPoolConfig.setMaxTotal(maxActive);
-            jedisPoolConfig.setMinIdle(minIdle);
-            // 密码为空设置为null
-            if (StrUtil.isBlank(password)) {
-                password = null;
-            }
-            JedisPool jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout, password);
-            log.info("初始化Redis连接池JedisPool成功!地址: {}:{}", host, port);
-            return jedisPool;
-        } catch (Exception e) {
-            log.error("初始化Redis连接池JedisPool异常:{}", e.getMessage());
+    public JedisPool redisPoolFactory() throws Exception {
+        log.info("JedisPool注入成功！！");
+        log.info("redis地址：" + host + ":" + port);
+
+        JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
+        jedisPoolConfig.setMaxIdle(maxIdle);
+        jedisPoolConfig.setMaxWaitMillis(maxWaitMillis);
+        jedisPoolConfig.setMaxTotal(maxActive);
+        jedisPoolConfig.setMinIdle(minIdle);
+
+        // 连接耗尽时是否阻塞, false报异常,ture阻塞直到超时, 默认true
+        jedisPoolConfig.setBlockWhenExhausted(blockWhenExhausted);
+        // 是否启用pool的jmx管理功能, 默认true
+        jedisPoolConfig.setJmxEnabled(true);
+        if (StrUtil.isBlank(password)) {
+            password = null;
         }
-        return null;
+        JedisPool jedisPool = new JedisPool(jedisPoolConfig, host, port, timeout, password);
+        return jedisPool;
     }
 
-    public String getHost() {
-        return host;
-    }
-
-    public void setHost(String host) {
-        this.host = host;
-    }
-
-    public int getPort() {
-        return port;
-    }
-
-    public void setPort(int port) {
-        this.port = port;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public int getTimeout() {
-        return timeout;
-    }
-
-    public void setTimeout(int timeout) {
-        this.timeout = timeout;
-    }
-
-    public int getMaxActive() {
-        return maxActive;
-    }
-
-    public void setMaxActive(int maxActive) {
-        this.maxActive = maxActive;
-    }
-
-    public int getMaxWait() {
-        return maxWait;
-    }
-
-    public void setMaxWait(int maxWait) {
-        this.maxWait = maxWait;
-    }
-
-    public int getMaxIdle() {
-        return maxIdle;
-    }
-
-    public void setMaxIdle(int maxIdle) {
-        this.maxIdle = maxIdle;
-    }
-
-    public int getMinIdle() {
-        return minIdle;
-    }
-
-    public void setMinIdle(int minIdle) {
-        this.minIdle = minIdle;
-    }
 }

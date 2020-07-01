@@ -97,6 +97,7 @@ public class ShiroConfig {
         //访问 /unauthorized/** 和登陆 不通过JWTFilter
         filterRuleMap.put("/sys/unauthorized/**", "anon");
         filterRuleMap.put("/sys/login/**", "anon");
+        filterRuleMap.put("/sys/test/**", "anon");
 
         //设置所有请求通过jwtFilter
         filterRuleMap.put("/**","jwt");

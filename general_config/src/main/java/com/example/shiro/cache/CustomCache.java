@@ -18,13 +18,11 @@ import java.util.*;
  * Date: 2020-06-29
  * Time: 15:43
  */
-public class CustomCache<K,V> implements Cache<K,V> {
+public class CustomCache<K, V> implements Cache<K, V> {
     /**
      * 缓存的key名称获取为shiro:cache:account
      * @param key
      * @return java.lang.String
-     * @author dolyw.com
-     * @date 2018/9/4 18:33
      */
     private String getKey(Object key) {
         return RedisConstant.PREFIX_SHIRO_CACHE + JwtUtil.getClaim(key.toString(), RedisConstant.USERNAME);

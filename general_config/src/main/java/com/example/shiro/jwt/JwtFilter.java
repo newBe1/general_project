@@ -5,7 +5,6 @@ import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.example.exception.CustomException;
 import com.example.redis.RedisConstant;
-import com.example.shiro.jwt.JwtToken;
 import com.example.uitls.JedisUtil;
 import com.example.uitls.JwtUtil;
 import com.example.utils.MyResult;
