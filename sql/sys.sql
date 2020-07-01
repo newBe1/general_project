@@ -402,6 +402,7 @@ insert into sys_user_post values ('1', '1');
 insert into sys_user_post values ('2', '2');
 
 
+
 -- ----------------------------
 -- 10、操作日志记录
 -- ----------------------------
