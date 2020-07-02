@@ -5,7 +5,7 @@ import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.example.exception.CustomException;
 import com.example.redis.RedisConstant;
-import com.example.uitls.JedisUtil;
+import com.example.uitls.RedisUtil;
 import com.example.uitls.JwtUtil;
 import com.example.utils.MyResult;
 import com.example.utils.PropertiesUtil;
@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter;
 import org.apache.shiro.web.util.WebUtils;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -30,6 +31,7 @@ import java.io.PrintWriter;
  */
 @Slf4j
 public class JwtFilter extends BasicHttpAuthenticationFilter {
+
     /**
      * 这里我们详细说明下为什么最终返回的都是true，即允许访问
      * 例如我们提供一个地址 GET /article
@@ -130,7 +132,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
     @Override
     protected boolean preHandle(ServletRequest request, ServletResponse response) throws Exception {
         // 跨域已经在OriginFilter处全局配置
-        /*HttpServletRequest httpServletRequest = WebUtils.toHttp(request);
+        HttpServletRequest httpServletRequest = WebUtils.toHttp(request);
         HttpServletResponse httpServletResponse = WebUtils.toHttp(response);
         httpServletResponse.setHeader("Access-control-Allow-Origin", httpServletRequest.getHeader("Origin"));
         httpServletResponse.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS,PUT,DELETE");
@@ -139,7 +141,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
         if (httpServletRequest.getMethod().equals(RequestMethod.OPTIONS.name())) {
             httpServletResponse.setStatus(HttpStatus.OK.value());
             return false;
-        }*/
+        }
         return super.preHandle(request, response);
     }
 
@@ -152,9 +154,9 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
         // 获取当前Token的帐号信息
         String account = JwtUtil.getClaim(token, RedisConstant.USERNAME);
         // 判断Redis中RefreshToken是否存在
-        if (JedisUtil.exists(RedisConstant.PREFIX_SHIRO_REFRESH_TOKEN + account)) {
+        if (RedisUtil.hasKey(RedisConstant.PREFIX_SHIRO_REFRESH_TOKEN + account)) {
             // Redis中RefreshToken还存在，获取RefreshToken的时间戳
-            String currentTimeMillisRedis = JedisUtil.getObject(RedisConstant.PREFIX_SHIRO_REFRESH_TOKEN + account).toString();
+            String currentTimeMillisRedis = RedisUtil.get(RedisConstant.PREFIX_SHIRO_REFRESH_TOKEN + account).toString();
             // 获取当前AccessToken中的时间戳，与RefreshToken的时间戳对比，如果当前时间戳一致，进行AccessToken刷新
             if (JwtUtil.getClaim(token, RedisConstant.CURRENT_TIME_MILLIS).equals(currentTimeMillisRedis)) {
                 // 获取当前最新时间戳
@@ -163,7 +165,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
                 PropertiesUtil.readProperties("config.properties");
                 String refreshTokenExpireTime = PropertiesUtil.getProperty("refreshTokenExpireTime");
                 // 设置RefreshToken中的时间戳为当前最新时间戳，且刷新过期时间重新为30分钟过期(配置文件可配置refreshTokenExpireTime属性)
-                JedisUtil.setObject(RedisConstant.PREFIX_SHIRO_REFRESH_TOKEN + account, currentTimeMillis, Integer.parseInt(refreshTokenExpireTime));
+                RedisUtil.set(RedisConstant.PREFIX_SHIRO_REFRESH_TOKEN + account, currentTimeMillis, Integer.parseInt(refreshTokenExpireTime));
                 // 刷新AccessToken，设置时间戳为当前最新时间戳
                 token = JwtUtil.sign(account, currentTimeMillis);
                 // 将新刷新的AccessToken再次进行Shiro的登录
@@ -189,7 +191,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
         httpServletResponse.setCharacterEncoding("UTF-8");
         httpServletResponse.setContentType("application/json; charset=utf-8");
         try (PrintWriter out = httpServletResponse.getWriter()) {
-            String data = JSON.toJSONString(new MyResult(HttpStatus.UNAUTHORIZED.value(), "无权访问(Unauthorized):" + msg, null));
+            String data = JSON.toJSONString(new MyResult(HttpStatus.UNAUTHORIZED.value(), "未登陆(notLoggedIn) " + msg, null));
             out.append(data);
         } catch (IOException e) {
             log.error("直接返回Response信息出现IOException异常:{}", e.getMessage());

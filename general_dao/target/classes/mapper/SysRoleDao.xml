@@ -21,7 +21,7 @@
     <select id="queryById" resultMap="SysRoleMap">
         select
           role_id, role_name, role_key, role_sort, data_scope, status, del_flag, create_by, create_time, update_by, update_time, remark
-        from ry.sys_role
+        from sys_role
         where role_id = #{roleId}
     </select>
 
@@ -29,7 +29,7 @@
     <select id="queryAllByLimit" resultMap="SysRoleMap">
         select
           role_id, role_name, role_key, role_sort, data_scope, status, del_flag, create_by, create_time, update_by, update_time, remark
-        from ry.sys_role
+        from sys_role
         limit #{offset}, #{limit}
     </select>
 
@@ -38,7 +38,7 @@
         select
         role_id, role_name, role_key, role_sort, data_scope, status, del_flag, create_by, create_time, update_by,
         update_time, remark
-        from ry.sys_role
+        from sys_role
         <where>
             <if test="roleId != null">
                 and role_id = #{roleId}
@@ -81,13 +81,13 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="roleId" useGeneratedKeys="true">
-        insert into ry.sys_role(role_name, role_key, role_sort, data_scope, status, del_flag, create_by, create_time, update_by, update_time, remark)
+        insert into sys_role(role_name, role_key, role_sort, data_scope, status, del_flag, create_by, create_time, update_by, update_time, remark)
         values (#{roleName}, #{roleKey}, #{roleSort}, #{dataScope}, #{status}, #{delFlag}, #{createBy}, #{createTime}, #{updateBy}, #{updateTime}, #{remark})
     </insert>
 
     <!--通过主键修改数据-->
     <update id="update">
-        update ry.sys_role
+        update sys_role
         <set>
             <if test="roleName != null and roleName != ''">
                 role_name = #{roleName},
@@ -128,7 +128,7 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from ry.sys_role where role_id = #{roleId}
+        delete from sys_role where role_id = #{roleId}
     </delete>
 
     <select id="getMenusByUserId" resultType="com.example.entity.SysMenu" parameterType="Long">

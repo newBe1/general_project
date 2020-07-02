@@ -2,7 +2,6 @@ package com.example.shiro;
 
 import com.example.shiro.jwt.JwtFilter;
 import com.example.service.SysMenuService;
-import com.example.shiro.cache.CustomCacheManager;
 import com.example.shiro.jwt.JwtRealm;
 import org.apache.shiro.mgt.DefaultSessionStorageEvaluator;
 import org.apache.shiro.mgt.DefaultSubjectDAO;
@@ -17,7 +16,6 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.Resource;
 import javax.servlet.Filter;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -52,7 +50,7 @@ public class ShiroConfig {
         subjectDAO.setSessionStorageEvaluator(defaultSessionStorageEvaluator);
         defaultWebSecurityManager.setSubjectDAO(subjectDAO);
         // 设置自定义Cache缓存
-        defaultWebSecurityManager.setCacheManager(new CustomCacheManager());
+        //defaultWebSecurityManager.setCacheManager(new CustomCacheManager());
         return defaultWebSecurityManager;
     }
 

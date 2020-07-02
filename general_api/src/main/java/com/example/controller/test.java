@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import com.example.uitls.JedisUtil;
 import org.apache.shiro.crypto.hash.Md5Hash;
 
 /**
@@ -12,7 +11,7 @@ import org.apache.shiro.crypto.hash.Md5Hash;
  */
 public class test {
     public static void main(String[] args) {
-        String object = JedisUtil.getObject("shiro").toString();
-        System.out.println(object);
+        String str = new Md5Hash("admin"+"222222"+"12345").toString();
+        System.out.println(str);
     }
 }

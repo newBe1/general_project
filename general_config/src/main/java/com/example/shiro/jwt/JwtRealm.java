@@ -7,7 +7,7 @@ import com.example.entity.SysUser;
 import com.example.redis.RedisConstant;
 import com.example.service.SysRoleService;
 import com.example.service.SysUserService;
-import com.example.uitls.JedisUtil;
+import com.example.uitls.RedisUtil;
 import com.example.uitls.JwtUtil;
 import com.example.uitls.ShiroUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -37,6 +37,7 @@ public class JwtRealm extends AuthorizingRealm {
 
     @Resource
     private SysRoleService sysRoleService;
+
 
     /**
      * 必须重写此方法，不然会报错
@@ -110,10 +111,10 @@ public class JwtRealm extends AuthorizingRealm {
         }
 
         //开始认证
-        if (JwtUtil.verify(jwt) && JedisUtil.exists(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName)) {
+        if (JwtUtil.verify(jwt) && RedisUtil.hasKey(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName)) {
 
             //获取redis中设置的token时间戳并与token中携带的时间戳进行比较
-            String currentTimeMillsRedis = JedisUtil.getObject(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName).toString();
+            String currentTimeMillsRedis = RedisUtil.get(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName).toString();
             if (JwtUtil.getClaim(jwt, RedisConstant.CURRENT_TIME_MILLIS).equals(currentTimeMillsRedis)) {
 
                 // 查询用户的角色和权限存到SimpleAuthenticationInfo中，这样在其它地方通过SecurityUtils.getSubject().getPrincipal()就能拿出用户的所有信息，包括角色和权限

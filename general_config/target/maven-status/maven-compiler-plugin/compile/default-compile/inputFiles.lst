@@ -1,7 +1,12 @@
-E:\workfile\code\general_project\general_config\src\main\java\com\example\filter\JwtFilter.java
-E:\workfile\code\general_project\general_config\src\main\java\com\example\shiro\JwtRealm.java
 E:\workfile\code\general_project\general_config\src\main\java\com\example\uitls\JwtUtil.java
+E:\workfile\code\general_project\general_config\src\main\java\com\example\shiro\cache\CustomCache.java
 E:\workfile\code\general_project\general_config\src\main\java\com\example\shiro\ShiroConfig.java
-E:\workfile\code\general_project\general_config\src\main\java\com\example\shiro\JwtToken.java
+E:\workfile\code\general_project\general_config\src\main\java\com\example\shiro\jwt\JwtFilter.java
+E:\workfile\code\general_project\general_config\src\main\java\com\example\shiro\jwt\JwtToken.java
+E:\workfile\code\general_project\general_config\src\main\java\com\example\shiro\jwt\JwtRealm.java
+E:\workfile\code\general_project\general_config\src\main\java\com\example\uitls\JedisUtil.java
+E:\workfile\code\general_project\general_config\src\main\java\com\example\redis\JedisConfig.java
+E:\workfile\code\general_project\general_config\src\main\java\com\example\shiro\cache\CustomCacheManager.java
 E:\workfile\code\general_project\general_config\src\main\java\com\example\uitls\ShiroUtils.java
 E:\workfile\code\general_project\general_config\src\main\java\com\example\aspect\SysLogAspect.java
+E:\workfile\code\general_project\general_config\src\main\java\com\example\redis\RedisConstant.java

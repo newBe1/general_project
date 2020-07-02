@@ -1,12 +1,14 @@
 package com.example.controller;
 
 import cn.hutool.core.util.StrUtil;
+import com.alibaba.fastjson.JSONObject;
 import com.example.annotations.SysLog;
 import com.example.entity.SysUser;
 import com.example.enums.CodeMsg;
+import com.example.enums.OperateType;
 import com.example.redis.RedisConstant;
 import com.example.service.SysUserService;
-import com.example.uitls.JedisUtil;
+import com.example.uitls.RedisUtil;
 import com.example.uitls.JwtUtil;
 import com.example.uitls.ShiroUtils;
 import com.example.utils.MyResult;
@@ -36,6 +38,7 @@ public class UserController {
     @Resource
     private SysUserService sysUserService;
 
+
     /**
      * RefreshToken过期时间
      */
@@ -43,7 +46,7 @@ public class UserController {
     private String refreshTokenExpireTime;
 
     @PostMapping("/login")
-    @SysLog()
+    @SysLog(operateMsg = "登陆",operateType = OperateType.OTHER)
     public MyResult login(String userName , String passWord , HttpServletResponse httpServletResponse) {
         log.info("username:{},password:{}", userName, passWord);
         if (StrUtil.isBlank(userName) && StrUtil.isBlank(passWord)) {
@@ -54,24 +57,27 @@ public class UserController {
         if (user == null) {
             return MyResult.error(CodeMsg.USER_NOT_EXSIST);
         }
-        String passKey = new Md5Hash(userName + passWord + user.getSalt()).toHex();
+        String passKey = new Md5Hash(userName + user.getSalt() + passWord).toHex();
 
         if (passKey.equals(user.getPassword())) {
 
             //清除可能存在的shiro权限信息缓存
-            if (JedisUtil.exists(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName)) {
-                JedisUtil.delKey(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName);
+            if (RedisUtil.hasKey(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName)) {
+                RedisUtil.del(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName);
             }
 
             //设置时间戳存入redis
             String currentTimeMills = String.valueOf(System.currentTimeMillis());
-            JedisUtil.setObject(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName, currentTimeMills, Integer.parseInt(refreshTokenExpireTime));
+            RedisUtil.set(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName, currentTimeMills, Integer.parseInt(refreshTokenExpireTime));
 
             //创建jwt并放入请求中
             String jwt = JwtUtil.sign(userName, currentTimeMills);
             httpServletResponse.setHeader("Authorization", jwt);
             httpServletResponse.setHeader("Access-Control-Expose-Headers", "Authorization");
-            return MyResult.customerRet(HttpStatus.OK.value(), "登陆成功", null);
+
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("token",jwt);
+            return MyResult.customerRet(HttpStatus.OK.value(), "登陆成功", jsonObject);
         }
         return MyResult.error(CodeMsg.ACCOUNT_PASSWORD_ERROR);
     }
@@ -83,10 +89,10 @@ public class UserController {
     }
 
     @GetMapping("test")
-    public MyResult test(){
-        String object = JedisUtil.getObject("shiro").toString();
-        System.out.println(object);
-        return MyResult.success(object);
+    @SysLog()
+    public MyResult test(String key){
+        log.info("-------------"+refreshTokenExpireTime);
+        return MyResult.success(key);
     }
 
     /**
@@ -94,6 +100,7 @@ public class UserController {
      * @return
      */
     @GetMapping("userInfo")
+    @SysLog()
     public MyResult userInfo(){
         SysUser user = (SysUser)ShiroUtils.getSubject().getPrincipal();
         if(user == null){

@@ -10,6 +10,8 @@ import com.example.exception.CustomException;
 import com.example.redis.RedisConstant;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
@@ -27,21 +29,24 @@ import java.util.Date;
  * Time: 13:46
  */
 @Slf4j
+@PropertySource("classpath:config.properties")
+@Component
 public class JwtUtil {
     /**
      * 过期时间改为从配置文件获取
      */
-    private static String accessTokenExpireTime;
 
-    /**
-     * JWT认证加密私钥(Base64加密)
-     */
-    private static String encryptJWTKey;
+    private static String accessTokenExpireTime;
 
     @Value("${accessTokenExpireTime}")
     public void setAccessTokenExpireTime(String accessTokenExpireTime) {
         JwtUtil.accessTokenExpireTime = accessTokenExpireTime;
     }
+
+    /**
+     * JWT认证加密私钥(Base64加密)
+     */
+    private static String encryptJWTKey;
 
     @Value("${encryptJWTKey}")
     public void setEncryptJWTKey(String encryptJWTKey) {
@@ -50,7 +55,6 @@ public class JwtUtil {
 
     /**
      * 校验token是否正确
-     *
      * @param token Token
      * @return boolean 是否正确
      */
@@ -66,7 +70,7 @@ public class JwtUtil {
     }
 
     /**
-     * 获得Token中的信息无需secret解密也能获得
+     * 获得Token中的信息  无需secret解密也能获得
      *
      * @param token
      * @param claim

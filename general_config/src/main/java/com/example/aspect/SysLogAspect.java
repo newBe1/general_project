@@ -1,10 +1,11 @@
 package com.example.aspect;
 
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
-import com.example.entity.SysUser;
-import com.example.service.OperateLogService;
 import com.example.entity.OperateLog;
+import com.example.entity.SysUser;
 import com.example.annotations.SysLog;
+import com.example.service.OperateLogService;
 import com.example.uitls.ShiroUtils;
 import com.example.utils.ServletUtils;
 import org.aspectj.lang.JoinPoint;
@@ -57,12 +58,31 @@ public class SysLogAspect {
      * 上面四个方法可以使用JoinPoint，JoinPoint包含了类名，被切面的方法名，参数等信息。
      * @param joinPoint
      */
-    @AfterThrowing(value = "logPointCut()" , throwing = "e")
-    public void doAfterThrowing(JoinPoint joinPoint , Exception e){
-        saveSysLog(joinPoint , e);
+
+
+    /**
+     * 处理完请求后执行
+     * @param joinPoint 切点
+     */
+    @AfterReturning(pointcut = "logPointCut()", returning = "jsonResult")
+    public void doAfterReturning(JoinPoint joinPoint, Object jsonResult)
+    {
+        saveSysLog(joinPoint, null, jsonResult);
     }
 
-    public void saveSysLog(JoinPoint joinPoint , Exception e){
+
+    /**
+     * 拦截异常操作
+     * @param joinPoint 切点
+     * @param e 异常
+     */
+    @AfterThrowing(value = "logPointCut()" , throwing = "e")
+    public void doAfterThrowing(JoinPoint joinPoint , Exception e){
+        saveSysLog(joinPoint , e , null);
+    }
+
+
+    public void saveSysLog(JoinPoint joinPoint , Exception e , Object jsonResult){
         try {
             //保存日志
             OperateLog operateLog = new OperateLog();
@@ -78,12 +98,14 @@ public class SysLogAspect {
 
             //获取操作
             SysLog sysLog = method.getAnnotation(SysLog.class);
-            if(log != null){
+            if(sysLog != null){
                 Integer operateType = sysLog.operateType().ordinal();     //获取该枚举对象的位置的索引值
                 String operateMsg = sysLog.operateMsg();
+                String moudle = sysLog.module();
 
-                operateLog.setOperateMsg(operateMsg);
+                operateLog.setOperatorMsg(operateMsg);
                 operateLog.setOperateType(operateType);
+                operateLog.setModule(moudle);
             }
 
             //获取请求的类名
@@ -93,26 +115,40 @@ public class SysLogAspect {
             //获取请求参数
             Map<String, String[]> map = ServletUtils.getRequest().getParameterMap();
             String params = JSON.toJSONString(map);
-            operateLog.setParams(params);
+            operateLog.setOperateParam(params);
+
+            //获取返回参数
+            operateLog.setJsonResult(JSON.toJSONString(jsonResult));
 
             //获取请求时间
-            operateLog.setCreateDate(new Date());
+            operateLog.setOperateTime(new Date());
 
             //获取操作用户
             SysUser user = ShiroUtils.getSysUser();
             if(user != null){
-                operateLog.setUsername(user.getUserName());
+                operateLog.setOperateName(user.getUserName());
             }
 
             //获取操作用户的ip地址
             String ip = ShiroUtils.getIp();
-            operateLog.setIp(ip);
+            operateLog.setOperateIp(ip);
 
             //获取操作url
             operateLog.setOperateUrl(ServletUtils.getRequest().getRequestURI());
 
+            //获取请求方法
+            operateLog.setRequestMethod(ServletUtils.getRequest().getMethod());
+
+            operateLog.setStatus(1);
+
+            //异常信息记录
+            if(e != null){
+                operateLog.setErrorMsg(StrUtil.sub(e.getMessage(),0,200));
+                operateLog.setStatus(0);
+            }
+
             //保存日志到数据库
-            operateLogService.add(operateLog);
+            operateLogService.insert(operateLog);
         } catch (Exception ex) {
             log.error("-------前置通知异常 ， 异常信息：{}--------" + ex.getMessage());
             ex.printStackTrace();

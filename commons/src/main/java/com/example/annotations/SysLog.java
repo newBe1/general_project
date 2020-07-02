@@ -11,7 +11,7 @@ import java.lang.annotation.*;
  * Date: 2020-06-16
  * Time: 16:01
  */
-@Target({ElementType.METHOD , ElementType.PARAMETER})
+@Target({java.lang.annotation.ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface SysLog {
