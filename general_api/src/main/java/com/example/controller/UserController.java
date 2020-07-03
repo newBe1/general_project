@@ -13,6 +13,7 @@ import com.example.uitls.JwtUtil;
 import com.example.uitls.ShiroUtils;
 import com.example.utils.MyResult;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -70,14 +71,12 @@ public class UserController {
             String currentTimeMills = String.valueOf(System.currentTimeMillis());
             RedisUtil.set(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName, currentTimeMills, Integer.parseInt(refreshTokenExpireTime));
 
-            //创建jwt并放入请求中
+            //创建jwt并放入请求头中
             String jwt = JwtUtil.sign(userName, currentTimeMills);
             httpServletResponse.setHeader("Authorization", jwt);
             httpServletResponse.setHeader("Access-Control-Expose-Headers", "Authorization");
 
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("token",jwt);
-            return MyResult.customerRet(HttpStatus.OK.value(), "登陆成功", jsonObject);
+            return MyResult.customerRet(HttpStatus.OK.value(), "登陆成功", null);
         }
         return MyResult.error(CodeMsg.ACCOUNT_PASSWORD_ERROR);
     }
@@ -90,9 +89,9 @@ public class UserController {
 
     @GetMapping("test")
     @SysLog()
-    public MyResult test(String key){
-        log.info("-------------"+refreshTokenExpireTime);
-        return MyResult.success(key);
+    @RequiresAuthentication
+    public MyResult test(){
+        return MyResult.success("登陆成功");
     }
 
     /**
@@ -102,7 +101,7 @@ public class UserController {
     @GetMapping("userInfo")
     @SysLog()
     public MyResult userInfo(){
-        SysUser user = (SysUser)ShiroUtils.getSubject().getPrincipal();
+        String user = ShiroUtils.getSubject().getPrincipal().toString();
         if(user == null){
             return MyResult.error(CodeMsg.USER_NOT_EXSIST);
         }

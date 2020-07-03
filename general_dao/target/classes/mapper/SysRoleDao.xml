@@ -135,7 +135,7 @@
         select sm.* from sys_menu sm left join sys_role_menu srm on sm.menu_id = srm.menu_id
         left join sys_user_role sur on srm.role_id = sur.role_id
         left join sys_role sr on sur.role_id = sr.role_id
-        where sm.visible = '0' and sr.status = '0' and ur.user_id = #{userId}
+        where sm.visible = '0' and sr.status = '0' and sur.user_id = #{userId}
     </select>
 
 </mapper>

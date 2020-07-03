@@ -96,7 +96,9 @@ public class JwtRealm extends AuthorizingRealm {
         log.info("------执行认证--------");
 
         //获取token 中的用户名信息
-        String jwt = (String) token.getCredentials();
+        String tokenStr = (String) token.getCredentials();
+        String jwt = tokenStr.split(" ")[1];
+
         String userName = JwtUtil.getClaim(jwt, RedisConstant.USERNAME);
 
         if (StrUtil.isBlank(userName)) {
@@ -111,7 +113,7 @@ public class JwtRealm extends AuthorizingRealm {
         }
 
         //开始认证
-        if (JwtUtil.verify(jwt) && RedisUtil.hasKey(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName)) {
+        if (RedisUtil.hasKey(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName) && JwtUtil.verify(jwt) ) {
 
             //获取redis中设置的token时间戳并与token中携带的时间戳进行比较
             String currentTimeMillsRedis = RedisUtil.get(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName).toString();
@@ -124,10 +126,11 @@ public class JwtRealm extends AuthorizingRealm {
                 Set<SysMenu> menus = sysRoleService.getMenusByUserId(user.getUserId());
                 user.setMenus(menus);
 
-                log.info("用户" + user.getUserName() + "正在使用token登录");
+                log.info("用户" + user.getUserName() + "正在使用token登录成功");
 
                 //这里返回的是类似账号密码的东西，但是jwtToken都是jwt字符串。还需要一个该Realm的类名
-                return new SimpleAuthenticationInfo(jwt, jwt, "JwtRealm");
+                SimpleAuthenticationInfo simpleAuthorizationInfo = new SimpleAuthenticationInfo(user, user.getPassword(), "JwtRealm");
+                return simpleAuthorizationInfo;
             }
             throw new AuthenticationException("Token已过期(Token expired or incorrect.)");
         }

@@ -65,8 +65,8 @@ create table sys_user (
 -- ----------------------------
 -- 初始化-用户信息表数据
 -- ----------------------------
-insert into sys_user values(1,  103, 'admin', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '111111','0', '0', '127.0.0.1', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '管理员');
-insert into sys_user values(2,  105, 'ry', '00', 'ry@qq.com',  '15666666666', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '222222','0', '0', '127.0.0.1', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '测试员');
+insert into sys_user values(1,  103, 'admin', '00', 'ry@163.com', '15888888888', '1', '', 'fb056f0f73ea5653d1d89dc31877d1b2', '111111','0', '0', '127.0.0.1', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '管理员');
+insert into sys_user values(2,  105, 'ry', '00', 'ry@qq.com',  '15666666666', '1', '', '505c58a5a50fd0472d33789028dd009b', '222222','0', '0', '127.0.0.1', '2018-03-16 11-33-00', 'admin', '2018-03-16 11-33-00', 'ry', '2018-03-16 11-33-00', '测试员');
 
 
 -- ----------------------------
@@ -365,6 +365,22 @@ insert into sys_role_menu values ('2', '1057');
 insert into sys_role_menu values ('2', '1058');
 insert into sys_role_menu values ('2', '1059');
 insert into sys_role_menu values ('2', '1060');
+insert into sys_role_menu values ('1', '1046');
+insert into sys_role_menu values ('1', '1047');
+insert into sys_role_menu values ('1', '1048');
+insert into sys_role_menu values ('1', '1049');
+insert into sys_role_menu values ('1', '1050');
+insert into sys_role_menu values ('1', '1051');
+insert into sys_role_menu values ('1', '1052');
+insert into sys_role_menu values ('1', '1053');
+insert into sys_role_menu values ('1', '1054');
+insert into sys_role_menu values ('1', '1055');
+insert into sys_role_menu values ('1', '1056');
+insert into sys_role_menu values ('1', '1057');
+insert into sys_role_menu values ('1', '1058');
+insert into sys_role_menu values ('1', '1059');
+insert into sys_role_menu values ('1', '1060');
+insert into sys_role_menu values ('1', '1061');
 
 -- ----------------------------
 -- 8、角色和部门关联表  角色1-N部门
