@@ -13,7 +13,7 @@ public class JwtToken implements AuthenticationToken {
     private String jwt;
 
     public JwtToken(String jwt) {
-        this.jwt = jwt.split(" ")[1];
+        this.jwt = jwt;
     }
 
     //类似是用户名

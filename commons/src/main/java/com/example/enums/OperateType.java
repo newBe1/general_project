@@ -59,7 +59,12 @@ public enum OperateType {
     CLEAN,
 
     /**
-     * 清空
+     * 登陆
      */
     LOGIN,
+
+    /**
+     * 查询
+     */
+    QUERY,
 }

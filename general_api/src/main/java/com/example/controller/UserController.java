@@ -1,7 +1,6 @@
 package com.example.controller;
 
 import cn.hutool.core.util.StrUtil;
-import com.alibaba.fastjson.JSONObject;
 import com.example.annotations.SysLog;
 import com.example.entity.SysUser;
 import com.example.enums.CodeMsg;
@@ -13,7 +12,6 @@ import com.example.uitls.JwtUtil;
 import com.example.uitls.ShiroUtils;
 import com.example.utils.MyResult;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -88,10 +86,12 @@ public class UserController {
     }
 
     @GetMapping("test")
-    @SysLog()
-    @RequiresAuthentication
+    @SysLog(operateMsg = "测试")
     public MyResult test(){
-        return MyResult.success("登陆成功");
+        SysUser user = new SysUser();
+        user.setUserName("fasdfa");
+        user.setPassword("fadfas");
+        return MyResult.success(sysUserService.insert(user));
     }
 
     /**
@@ -99,7 +99,7 @@ public class UserController {
      * @return
      */
     @GetMapping("userInfo")
-    @SysLog()
+    @SysLog(operateMsg = "获取当前登陆用户的详情信息",operateType = OperateType.QUERY)
     public MyResult userInfo(){
         String user = ShiroUtils.getSubject().getPrincipal().toString();
         if(user == null){

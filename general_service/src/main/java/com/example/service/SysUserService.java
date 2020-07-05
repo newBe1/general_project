@@ -9,7 +9,7 @@ import java.util.Set;
  * 用户信息表(SysUser)表服务接口
  *
  * @author makejava
- * @since 2020-06-23 13:35:00
+ * @since 2020-07-05 15:28:07
  */
 public interface SysUserService {
 
@@ -29,6 +29,14 @@ public interface SysUserService {
      * @return 对象列表
      */
     List<SysUser> queryAllByLimit(int offset, int limit);
+    
+    /**
+     * 通过实体作为筛选条件查询
+     *
+     * @param sysUser 实例对象
+     * @return 对象列表
+     */
+    List<SysUser> queryAll(SysUser sysUser);
 
     /**
      * 新增数据
@@ -54,7 +62,6 @@ public interface SysUserService {
      */
     boolean deleteById(Long userId);
 
-
     /**
      * 通过userId 查询该用户的所有角色
      * @param userId
@@ -63,4 +70,5 @@ public interface SysUserService {
     Set<SysRole> getRolesByUserId(Long userId);
 
     SysUser queryByUserName(String userName);
+
 }

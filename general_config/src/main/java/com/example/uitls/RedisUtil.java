@@ -1,5 +1,6 @@
 package com.example.uitls;
 
+import com.example.exception.CustomException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -65,8 +66,7 @@ public class RedisUtil {
         try {
             return redisTemplate.hasKey(key);
         } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+            throw new CustomException(e.getMessage());
         }
     }
 

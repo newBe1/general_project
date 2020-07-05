@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.OperateLogDao">
+
+    <resultMap type="com.example.entity.OperateLog" id="OperateLogMap">
+        <result property="operateId" column="operate_id" jdbcType="INTEGER"/>
+        <result property="module" column="module" jdbcType="VARCHAR"/>
+        <result property="operateType" column="operate_type" jdbcType="INTEGER"/>
+        <result property="methodName" column="method_name" jdbcType="VARCHAR"/>
+        <result property="requestMethod" column="request_method" jdbcType="VARCHAR"/>
+        <result property="operatorMsg" column="operator_msg" jdbcType="VARCHAR"/>
+        <result property="operateName" column="operate_name" jdbcType="VARCHAR"/>
+        <result property="operateUrl" column="operate_url" jdbcType="VARCHAR"/>
+        <result property="operateIp" column="operate_ip" jdbcType="VARCHAR"/>
+        <result property="operateParam" column="operate_param" jdbcType="VARCHAR"/>
+        <result property="jsonResult" column="json_result" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="errorMsg" column="error_msg" jdbcType="VARCHAR"/>
+        <result property="operateTime" column="operate_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="OperateLogMap">
+        select
+          operate_id, module, operate_type, method_name, request_method, operator_msg, operate_name, operate_url, operate_ip, operate_param, json_result, status, error_msg, operate_time
+        from mydataBase.operate_log
+        where operate_id = #{operateId}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="OperateLogMap">
+        select
+          operate_id, module, operate_type, method_name, request_method, operator_msg, operate_name, operate_url, operate_ip, operate_param, json_result, status, error_msg, operate_time
+        from mydataBase.operate_log
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="OperateLogMap">
+        select
+          operate_id, module, operate_type, method_name, request_method, operator_msg, operate_name, operate_url, operate_ip, operate_param, json_result, status, error_msg, operate_time
+        from mydataBase.operate_log
+        <where>
+            <if test="operateId != null">
+                and operate_id = #{operateId}
+            </if>
+            <if test="module != null and module != ''">
+                and module = #{module}
+            </if>
+            <if test="operateType != null">
+                and operate_type = #{operateType}
+            </if>
+            <if test="methodName != null and methodName != ''">
+                and method_name = #{methodName}
+            </if>
+            <if test="requestMethod != null and requestMethod != ''">
+                and request_method = #{requestMethod}
+            </if>
+            <if test="operatorMsg != null and operatorMsg != ''">
+                and operator_msg = #{operatorMsg}
+            </if>
+            <if test="operateName != null and operateName != ''">
+                and operate_name = #{operateName}
+            </if>
+            <if test="operateUrl != null and operateUrl != ''">
+                and operate_url = #{operateUrl}
+            </if>
+            <if test="operateIp != null and operateIp != ''">
+                and operate_ip = #{operateIp}
+            </if>
+            <if test="operateParam != null and operateParam != ''">
+                and operate_param = #{operateParam}
+            </if>
+            <if test="jsonResult != null and jsonResult != ''">
+                and json_result = #{jsonResult}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="errorMsg != null and errorMsg != ''">
+                and error_msg = #{errorMsg}
+            </if>
+            <if test="operateTime != null">
+                and operate_time = #{operateTime}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="operateId" useGeneratedKeys="true">
+        insert into mydataBase.operate_log(module, operate_type, method_name, request_method, operator_msg, operate_name, operate_url, operate_ip, operate_param, json_result, status, error_msg, operate_time)
+        values (#{module}, #{operateType}, #{methodName}, #{requestMethod}, #{operatorMsg}, #{operateName}, #{operateUrl}, #{operateIp}, #{operateParam}, #{jsonResult}, #{status}, #{errorMsg}, #{operateTime})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update mydataBase.operate_log
+        <set>
+            <if test="module != null and module != ''">
+                module = #{module},
+            </if>
+            <if test="operateType != null">
+                operate_type = #{operateType},
+            </if>
+            <if test="methodName != null and methodName != ''">
+                method_name = #{methodName},
+            </if>
+            <if test="requestMethod != null and requestMethod != ''">
+                request_method = #{requestMethod},
+            </if>
+            <if test="operatorMsg != null and operatorMsg != ''">
+                operator_msg = #{operatorMsg},
+            </if>
+            <if test="operateName != null and operateName != ''">
+                operate_name = #{operateName},
+            </if>
+            <if test="operateUrl != null and operateUrl != ''">
+                operate_url = #{operateUrl},
+            </if>
+            <if test="operateIp != null and operateIp != ''">
+                operate_ip = #{operateIp},
+            </if>
+            <if test="operateParam != null and operateParam != ''">
+                operate_param = #{operateParam},
+            </if>
+            <if test="jsonResult != null and jsonResult != ''">
+                json_result = #{jsonResult},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="errorMsg != null and errorMsg != ''">
+                error_msg = #{errorMsg},
+            </if>
+            <if test="operateTime != null">
+                operate_time = #{operateTime},
+            </if>
+        </set>
+        where operate_id = #{operateId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from mydataBase.operate_log where operate_id = #{operateId}
+    </delete>
+
+</mapper>

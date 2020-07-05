@@ -96,8 +96,9 @@ public class JwtRealm extends AuthorizingRealm {
         log.info("------执行认证--------");
 
         //获取token 中的用户名信息
-        String tokenStr = (String) token.getCredentials();
-        String jwt = tokenStr.split(" ")[1];
+        String jwt = (String) token.getCredentials();
+
+        //String jwt = token.getCredentials().toString().split(" ")[1];
 
         String userName = JwtUtil.getClaim(jwt, RedisConstant.USERNAME);
 

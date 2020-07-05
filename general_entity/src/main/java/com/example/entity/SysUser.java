@@ -1,25 +1,17 @@
 package com.example.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.Date;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Set;
 
 /**
  * 用户信息表(SysUser)实体类
  *
  * @author makejava
- * @since 2020-06-23 13:34:39
+ * @since 2020-07-05 15:24:25
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class SysUser implements Serializable {
-    private static final long serialVersionUID = 711117755264684278L;
+    private static final long serialVersionUID = 309859921170412983L;
     /**
     * 用户ID
     */
@@ -29,11 +21,11 @@ public class SysUser implements Serializable {
     */
     private Long deptId;
     /**
-    * 用户昵称
+    * 用户账号
     */
     private String userName;
     /**
-    * 用户类型（00系统用户 01注册用户）
+    * 用户类型（00系统用户）
     */
     private String userType;
     /**
@@ -49,7 +41,7 @@ public class SysUser implements Serializable {
     */
     private String sex;
     /**
-    * 头像路径
+    * 头像地址
     */
     private String avatar;
     /**
@@ -92,6 +84,31 @@ public class SysUser implements Serializable {
     * 更新时间
     */
     private Date updateTime;
+
+    public Set<SysRole> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<SysRole> roles) {
+        this.roles = roles;
+    }
+
+    public Set<SysMenu> getMenus() {
+        return menus;
+    }
+
+    public void setMenus(Set<SysMenu> menus) {
+        this.menus = menus;
+    }
+
+    public String getJwt() {
+        return jwt;
+    }
+
+    public void setJwt(String jwt) {
+        this.jwt = jwt;
+    }
+
     /**
     * 备注
     */
@@ -100,4 +117,158 @@ public class SysUser implements Serializable {
     private Set<SysRole> roles;          //用户所有角色值，用于shiro做角色权限的判断
     private Set<SysMenu> menus;    //用户所有权限值，用于shiro做资源权限的判断
     private String jwt;            //用户登陆成功后的token
+
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getDeptId() {
+        return deptId;
+    }
+
+    public void setDeptId(Long deptId) {
+        this.deptId = deptId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhonenumber() {
+        return phonenumber;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(String delFlag) {
+        this.delFlag = delFlag;
+    }
+
+    public String getLoginIp() {
+        return loginIp;
+    }
+
+    public void setLoginIp(String loginIp) {
+        this.loginIp = loginIp;
+    }
+
+    public Date getLoginDate() {
+        return loginDate;
+    }
+
+    public void setLoginDate(Date loginDate) {
+        this.loginDate = loginDate;
+    }
+
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getUpdateBy() {
+        return updateBy;
+    }
+
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
 }

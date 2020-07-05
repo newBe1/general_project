@@ -15,9 +15,9 @@ import java.util.Set;
  * 用户信息表(SysUser)表服务实现类
  *
  * @author makejava
- * @since 2020-06-23 13:35:00
+ * @since 2020-07-05 15:27:39
  */
-@Service
+@Service("sysUserService")
 public class SysUserServiceImpl implements SysUserService {
     @Resource
     private SysUserDao sysUserDao;
@@ -43,6 +43,17 @@ public class SysUserServiceImpl implements SysUserService {
     @Override
     public List<SysUser> queryAllByLimit(int offset, int limit) {
         return this.sysUserDao.queryAllByLimit(offset, limit);
+    }
+    
+    /**
+     * 通过实体作为筛选条件查询
+     *
+     * @param sysUser 实例对象
+     * @return 对象列表
+     */
+    @Override
+    public List<SysUser> queryAll(SysUser sysUser) {
+        return this.sysUserDao.queryAll(sysUser);
     }
 
     /**

@@ -2,9 +2,9 @@ package com.example.aspect;
 
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
+import com.example.annotations.SysLog;
 import com.example.entity.OperateLog;
 import com.example.entity.SysUser;
-import com.example.annotations.SysLog;
 import com.example.service.OperateLogService;
 import com.example.uitls.ShiroUtils;
 import com.example.utils.ServletUtils;
