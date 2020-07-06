@@ -35,9 +35,6 @@ public class JwtRealm extends AuthorizingRealm {
     @Resource
     private SysUserService sysUserService;
 
-    @Resource
-    private SysRoleService sysRoleService;
-
 
     /**
      * 必须重写此方法，不然会报错
@@ -98,8 +95,6 @@ public class JwtRealm extends AuthorizingRealm {
         //获取token 中的用户名信息
         String jwt = (String) token.getCredentials();
 
-        //String jwt = token.getCredentials().toString().split(" ")[1];
-
         String userName = JwtUtil.getClaim(jwt, RedisConstant.USERNAME);
 
         if (StrUtil.isBlank(userName)) {
@@ -114,28 +109,17 @@ public class JwtRealm extends AuthorizingRealm {
         }
 
         //开始认证
-        if (RedisUtil.hasKey(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName) && JwtUtil.verify(jwt) ) {
+        if (JwtUtil.verify(jwt) && RedisUtil.hasKey(RedisConstant.PREFIX_SHIRO_REFRESH_TOKEN + userName)) {
 
             //获取redis中设置的token时间戳并与token中携带的时间戳进行比较
-            String currentTimeMillsRedis = RedisUtil.get(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName).toString();
+            String currentTimeMillsRedis = RedisUtil.get(RedisConstant.PREFIX_SHIRO_REFRESH_TOKEN + userName).toString();
             if (JwtUtil.getClaim(jwt, RedisConstant.CURRENT_TIME_MILLIS).equals(currentTimeMillsRedis)) {
-
-                // 查询用户的角色和权限存到SimpleAuthenticationInfo中，这样在其它地方通过SecurityUtils.getSubject().getPrincipal()就能拿出用户的所有信息，包括角色和权限
-                Set<SysRole> roles = sysUserService.getRolesByUserId(user.getUserId());
-                user.setRoles(roles);
-
-                Set<SysMenu> menus = sysRoleService.getMenusByUserId(user.getUserId());
-                user.setMenus(menus);
-
-                log.info("用户" + user.getUserName() + "正在使用token登录成功");
-
                 //这里返回的是类似账号密码的东西，但是jwtToken都是jwt字符串。还需要一个该Realm的类名
-                SimpleAuthenticationInfo simpleAuthorizationInfo = new SimpleAuthenticationInfo(user, user.getPassword(), "JwtRealm");
+                SimpleAuthenticationInfo simpleAuthorizationInfo = new SimpleAuthenticationInfo(jwt,jwt,getName());
                 return simpleAuthorizationInfo;
             }
-            throw new AuthenticationException("Token已过期(Token expired or incorrect.)");
         }
-        throw new AuthenticationException("token 无效请重新登陆");
+        throw new AuthenticationException("Token无效或已过期(Token expired or incorrect.)");
     }
 
     /**

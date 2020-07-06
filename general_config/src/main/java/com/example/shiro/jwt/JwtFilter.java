@@ -48,29 +48,33 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
             try {
                 // 进行Shiro的登录UserRealm
                 this.executeLogin(request, response);
-            } catch (Exception e) {
+
+
+            } catch (Exception e) {            //会捕获JwtRealm中认证过程中的异常
                 // 认证出现异常，传递错误信息msg
                 String msg = e.getMessage();
                 // 获取应用异常(该Cause是导致抛出此throwable(异常)的throwable(异常))
                 Throwable throwable = e.getCause();
+
+                //判断是否密钥错误
                 if (throwable instanceof SignatureVerificationException) {
-                    // 该异常为JWT的AccessToken认证失败(Token或者密钥不正确)
-                    msg = "Token或者密钥不正确(" + throwable.getMessage() + ")";
-                } else if (throwable instanceof TokenExpiredException) {
-                    // 该异常为JWT的AccessToken已过期，判断RefreshToken未过期就进行AccessToken刷新
-                    if (this.refreshToken(request, response)) {
-                        return true;
+                    msg = "签名密钥错误（" + throwable.getMessage() + "）";
+                } else
+                    // 判断token是否有效
+                    if (throwable instanceof TokenExpiredException) {
+                        if (this.refreshToken(request, response)) {
+                            log.info("--------刷新token---------");
+                            return true;
+                        } else {
+                            msg = "Token已过期(" + throwable.getMessage() + ")";
+                        }
                     } else {
-                        msg = "Token已过期(" + throwable.getMessage() + ")";
+                        // 应用异常不为空
+                        if (throwable != null) {
+                            // 获取应用异常msg
+                            msg = throwable.getMessage();
+                        }
                     }
-                } else {
-                    // 应用异常不为空
-                    if (throwable != null) {
-                        msg = "weizhi";
-                        // 获取应用异常msg
-                        msg = throwable.getMessage();
-                    }
-                }
                 // Token认证失败直接返回Response信息
                 this.response401(response, msg);
                 return false;
@@ -86,7 +90,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
             // mustLoginFlag = true 开启任何请求必须登录才可访问
             final Boolean mustLoginFlag = true;
             if (mustLoginFlag) {
-                this.response401(response, "请先登录");
+                this.response401(response, "当前请求token为空");
                 return false;
             }
         }
@@ -152,7 +156,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
      */
     private boolean refreshToken(ServletRequest request, ServletResponse response) {
         // 拿到当前Header中Authorization的AccessToken(Shiro中getAuthzHeader方法已经实现)
-        String token = this.getAuthzHeader(request);
+        String token = this.getAuthzHeader(request).split(" ")[1];
         // 获取当前Token的帐号信息
         String account = JwtUtil.getClaim(token, RedisConstant.USERNAME);
         // 判断Redis中RefreshToken是否存在
@@ -193,7 +197,7 @@ public class JwtFilter extends BasicHttpAuthenticationFilter {
         httpServletResponse.setCharacterEncoding("UTF-8");
         httpServletResponse.setContentType("application/json; charset=utf-8");
         try (PrintWriter out = httpServletResponse.getWriter()) {
-            String data = JSON.toJSONString(new MyResult(HttpStatus.UNAUTHORIZED.value(), "未登陆(notLoggedIn) " + msg, null));
+            String data = JSON.toJSONString(new MyResult(HttpStatus.UNAUTHORIZED.value(), "认证失败(Authentication failed) " + msg, null));
             out.append(data);
         } catch (IOException e) {
             log.error("直接返回Response信息出现IOException异常:{}", e.getMessage());

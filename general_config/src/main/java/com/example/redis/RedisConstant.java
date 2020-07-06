@@ -41,7 +41,7 @@ public class RedisConstant {
     public static final String PREFIX_SHIRO_ACCESS_TOKEN = "shiro:access_token:";
 
     /**
-     * redis-key-前缀-shiro:refresh_token:
+     * redis-key-前缀-shiro:refresh_token:  token刷新时长
      */
     public static final String PREFIX_SHIRO_REFRESH_TOKEN = "shiro:refresh_token:";
 

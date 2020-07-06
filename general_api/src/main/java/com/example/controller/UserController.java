@@ -2,6 +2,7 @@ package com.example.controller;
 
 import cn.hutool.core.util.StrUtil;
 import com.example.annotations.SysLog;
+import com.example.entity.SysRole;
 import com.example.entity.SysUser;
 import com.example.enums.CodeMsg;
 import com.example.enums.OperateType;
@@ -10,6 +11,7 @@ import com.example.service.SysUserService;
 import com.example.uitls.RedisUtil;
 import com.example.uitls.JwtUtil;
 import com.example.uitls.ShiroUtils;
+import com.example.uitls.UserUtil;
 import com.example.utils.MyResult;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.crypto.hash.Md5Hash;
@@ -37,6 +39,9 @@ public class UserController {
     @Resource
     private SysUserService sysUserService;
 
+    @Resource
+    private UserUtil userUtil;
+
 
     /**
      * RefreshToken过期时间
@@ -60,14 +65,9 @@ public class UserController {
 
         if (passKey.equals(user.getPassword())) {
 
-            //清除可能存在的shiro权限信息缓存
-            if (RedisUtil.hasKey(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName)) {
-                RedisUtil.del(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName);
-            }
-
             //设置时间戳存入redis
             String currentTimeMills = String.valueOf(System.currentTimeMillis());
-            RedisUtil.set(RedisConstant.PREFIX_SHIRO_ACCESS_TOKEN + userName, currentTimeMills, Integer.parseInt(refreshTokenExpireTime));
+            RedisUtil.set(RedisConstant.PREFIX_SHIRO_REFRESH_TOKEN + userName, currentTimeMills, Integer.parseInt(refreshTokenExpireTime));
 
             //创建jwt并放入请求头中
             String jwt = JwtUtil.sign(userName, currentTimeMills);
@@ -99,9 +99,10 @@ public class UserController {
      * @return
      */
     @GetMapping("userInfo")
-    @SysLog(operateMsg = "获取当前登陆用户的详情信息",operateType = OperateType.QUERY)
+    @SysLog(operateMsg = "获取当前登陆用户详情信息",operateType = OperateType.QUERY)
     public MyResult userInfo(){
-        String user = ShiroUtils.getSubject().getPrincipal().toString();
+
+        SysUser user = userUtil.getCurrentUser();
         if(user == null){
             return MyResult.error(CodeMsg.USER_NOT_EXSIST);
         }
